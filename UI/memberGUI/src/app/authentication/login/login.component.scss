@@ -1,0 +1,25 @@
+body {
+  background: #007bff;
+  background: linear-gradient(to right, #0062E6, #33AEFF);
+}
+
+label{
+  color: #766b6b;
+}
+
+.login-btn {
+  font-size: 0.9rem;
+  letter-spacing: 0.05rem;
+  padding: 0.75rem 1rem;
+}
+
+.google-sign-in-btn {
+  color: white !important;
+  background-color: #ea4335;
+}
+
+.login-helper-text {
+  font-size: 0.8rem;
+  font-family: Monospaced font;
+}
+
