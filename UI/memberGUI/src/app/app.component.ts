@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
-import { AuthenticateService } from './authentication/authenticate.service';
+import { Router } from '@angular/router';
+import { Observable } from 'rxjs';
+import { AuthService } from './authentication/auth.service';
 
 @Component({
   selector: 'app-root',
@@ -8,12 +10,10 @@ import { AuthenticateService } from './authentication/authenticate.service';
 })
 export class AppComponent {
   title = 'memberGUI';
-  isLogin:boolean=false;
-  constructor(private service:AuthenticateService)
-  {
-    this.isLogin=service.isLogin
+  sidebarExpanded = true;
+  isLoggedIn$!: Observable<boolean>;
+  constructor(private router: Router, private authService: AuthService){
+    this.isLoggedIn$ = this.authService.isLoggedIn;
   }
-  setIsLogin=(status:boolean)=>{
-  this.isLogin=status;
-  }
+
 }
