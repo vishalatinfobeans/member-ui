@@ -1,1 +1,52 @@
-<p>side-bar works!</p>
+<div class="sidebar" [ngClass]="{ expanded: isExpanded }">
+  <div class="header">
+    <h1 class="head-title">Hello User!</h1>
+    <div class="toggle" (click)="handleSidebarToggle()" style="cursor: pointer;">
+      <i
+        [ngClass]="{ hide: !isExpanded }"
+        class="fa-solid fa-xmark fa-lg sidebar-icon"
+      ></i>
+      <i
+        [ngClass]="{ hide: isExpanded }"
+        class="fa-solid fa-bars fa-lg sidebar-icon"
+      ></i>
+    </div>
+  </div>
+  <div class="content" title="Rewards">
+    <div class="link">
+      <div class="content">
+        <div class="icon">
+          <i class="fa-solid fa-award fa-lg sidebar-icon"></i>
+        </div>
+        <div class="item-title">Rewards</div>
+      </div>
+    </div>
+    <div class="link" title="Communication">
+      <div class="content">
+        <div class="icon">
+          <i class="fa-solid fa-comment-dots fa-lg sidebar-icon"></i>
+        </div>
+        <div class="item-title">Communication</div>
+      </div>
+    </div>
+    <div class="link" title="Q/A">
+      <div class="content">
+        <div class="icon">
+          <i
+            class="fa-sharp fa-solid fa-circle-question fa-lg sidebar-icon"
+          ></i>
+        </div>
+        <div class="item-title">Q/A</div>
+      </div>
+    </div>
+    <div class="link" (click) = "logout()" title="Logout">
+      <div class="content">
+        <div class="icon">
+          <i class="fa-sharp fa-solid fa-right-from-bracket"></i>
+        </div>
+        <div class="item-title">Logout</div>
+      </div>
+    </div>
+  </div>
+  <div class="footer"></div>
+</div>

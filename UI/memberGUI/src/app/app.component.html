@@ -1,4 +1,16 @@
-<!-- <app-header></app-header>
-<app-side-bar></app-side-bar> -->
-<router-outlet></router-outlet>
-<!-- <app-footer></app-footer> -->
+<div class="container-fluid">
+  <div *ngIf="isLoggedIn$ | async">
+    <app-header></app-header>
+  </div>
+  <div class="sidebar" *ngIf="isLoggedIn$ | async">
+    <app-side-bar></app-side-bar>
+  </div>
+  <div>
+    <router-outlet>
+    </router-outlet>
+  </div>
+  <div *ngIf="isLoggedIn$ | async">
+    <app-footer></app-footer>
+  </div>
+
+</div>
