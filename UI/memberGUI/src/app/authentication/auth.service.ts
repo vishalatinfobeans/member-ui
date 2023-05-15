@@ -6,7 +6,7 @@ import { BehaviorSubject } from 'rxjs';
   providedIn: 'root'
 })
 export class AuthService {
-  private loggedIn = new BehaviorSubject<boolean>(false); // {1}
+  private loggedIn = new BehaviorSubject<boolean>(false);
 
   get isLoggedIn() {
     let user = window.atob(localStorage.getItem("userInfo") || '');
@@ -14,8 +14,7 @@ export class AuthService {
       const sessionDetails = JSON.parse(user);
       this.loggedIn.next(sessionDetails.status);
     }
-    console.log(" in check login ", this.loggedIn.subscribe(val => console.log(val)));  
-    return this.loggedIn.asObservable(); // {2}
+    return this.loggedIn.asObservable();
   }
 
   constructor(
@@ -23,7 +22,7 @@ export class AuthService {
   ) {}
 
   login(user: any){
-    if (user.email !== '' && user.password !== '' ) { // {3}
+    if (user.email !== '' && user.password !== '' ) {
       this.loggedIn.next(true);
       localStorage.setItem("userInfo", window.btoa(JSON.stringify(({status: true, ...user}))));
       this.router.navigate(['/']);
