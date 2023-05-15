@@ -1,1 +1,44 @@
-<p>side-bar works!</p>
+<div class="sidebar" [ngClass]="{ expanded: isExpanded }">
+  <div class="header">
+    <h1 class="head-title">Hello User!</h1>
+    <div class="toggle" (click)="handleSidebarToggle()">
+      <i
+        [ngClass]="{ hide: !isExpanded }"
+        class="fa-solid fa-xmark fa-lg sidebar-icon"
+      ></i>
+      <i
+        [ngClass]="{ hide: isExpanded }"
+        class="fa-solid fa-bars fa-lg sidebar-icon"
+      ></i>
+    </div>
+  </div>
+  <div class="content">
+    <div class="link">
+      <div class="content">
+        <div class="icon">
+          <i class="fa-solid fa-award fa-lg sidebar-icon"></i>
+        </div>
+        <div class="item-title">Rewards</div>
+      </div>
+    </div>
+    <div class="link">
+      <div class="content">
+        <div class="icon">
+          <i class="fa-solid fa-comment-dots fa-lg sidebar-icon"></i>
+        </div>
+        <div class="item-title">Communication</div>
+      </div>
+    </div>
+    <div class="link">
+      <div class="content">
+        <div class="icon">
+          <i
+            class="fa-sharp fa-solid fa-circle-question fa-lg sidebar-icon"
+          ></i>
+        </div>
+        <div class="item-title">Q/A</div>
+      </div>
+    </div>
+  </div>
+  <div class="footer"></div>
+</div>

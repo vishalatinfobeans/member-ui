@@ -7,7 +7,7 @@ import { AppComponent } from './app.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { SharedModule } from './shared/shared.module';
 import { AuthenticationModule } from './authentication/authentication.module';
-
+import { HeaderComponent } from './shared/header/header.component';
 @NgModule({
   declarations: [
     AppComponent,
