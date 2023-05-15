@@ -17,7 +17,19 @@
         class="navbar-nav me-auto my-2 my-lg-0 navbar-nav-scroll float-right"
         style="--bs-scroll-height: 100px"
       ></ul>
-      <button [ngClass]="{ hide: !isLogin }"type="button" class="btn btn-primary nav-item nav-badge">
+      <button
+        [ngClass]="{ hide: !this.authService.isLogin }"
+        type="button"
+        class="btn btn-primary nav-item nav-badge"
+      >
+        <span class="badge-title">My Reward Balance </span><br />
+
+      </button>
+      <button
+        [ngClass]="{ hide: !this.authService.isLogin }"
+        type="button"
+        class="btn btn-primary nav-item nav-badge"
+      >
         <span class="badge-title">My Reward Balance </span><br />
         <span class="badge badge-light reward-badge"
           ><span class="nav-badge-icon">$</span>50.00</span
