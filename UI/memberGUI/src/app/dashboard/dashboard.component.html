@@ -3,17 +3,18 @@
       <h1>Our Services</h1>
   </div> -->
   <div class="row text-left">
-      <div class="col-md-6">
+    <ng-container *ngFor="let promotion of promotions">
+      <div class="col-md-6" *ngIf="promotion.attributes.status == 'Active'">
           <div class="box">
               <div class="our-services settings">
                 <div class="row">
                   <div class="col">
-                    <p class="mb-2" style="font-size: 13px; text-align: left; color: grey;">Get started now!</p>
+                    <p class="mb-2" style="font-size: 13px; text-align: left; color: grey;">{{promotion.attributes.name}}</p>
                   </div>
                 </div>
                 <div class="row mb-4">
                   <div class="col" style="text-align: left;">
-                    <p>Take your health Rist Assessment</p>
+                    <p>{{promotion.attributes.description}}</p>
                   </div>
                   <div class="col">
                     <!-- <div class="icon"> <img src="https://i.imgur.com/6NKPrhO.png"> </div> -->
@@ -33,7 +34,8 @@
               </div>
           </div>
       </div>
-      <div class="col-md-6">
+    </ng-container>
+      <!-- <div class="col-md-6">
         <div class="box">
             <div class="our-services settings">
               <div class="row">
@@ -46,7 +48,6 @@
                   <p>Take your health Rist Assessment</p>
                 </div>
                 <div class="col">
-                  <!-- <div class="icon"> <img src="https://i.imgur.com/6NKPrhO.png"> </div> -->
                   <i class="fa-sharp fa-solid fa-clipboard-list-check"></i>
                 </div>
               </div>
@@ -62,18 +63,10 @@
               </div>
             </div>
         </div>
-    </div>
-      <!-- <div class="col-md-4">
-          <div class="box">
-              <div class="our-services privacy">
-                  <div class="icon"> <img src="https://i.imgur.com/AgyneKA.png"> </div>
-                  <h4>Privacy</h4>
-                  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit </p>
-              </div>
-          </div>
-      </div> -->
+    </div> -->
+
   </div>
-  <div class="row">
+  <!-- <div class="row">
     <div class="col-md-6">
       <div class="box">
           <div class="our-services settings">
@@ -87,7 +80,6 @@
                 <p>Take your health Rist Assessment</p>
               </div>
               <div class="col">
-                <!-- <div class="icon"> <img src="https://i.imgur.com/6NKPrhO.png"> </div> -->
                 <i class="fa-sharp fa-solid fa-clipboard-list-check"></i>
               </div>
             </div>
@@ -117,7 +109,6 @@
               <p>Take your health Rist Assessment</p>
             </div>
             <div class="col">
-              <!-- <div class="icon"> <img src="https://i.imgur.com/6NKPrhO.png"> </div> -->
               <i class="fa-sharp fa-solid fa-clipboard-list-check"></i>
             </div>
           </div>
@@ -134,7 +125,7 @@
         </div>
     </div>
 </div>
-  </div>
+  </div> -->
 </div>
 <div class="col-4 mb-5 sideBar" style="float: right;position: relative;margin-top: 35px;left :10%">
   <div class="card" style="width: 18rem;">
