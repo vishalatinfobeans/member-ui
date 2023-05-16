@@ -14,7 +14,7 @@
 .sidebar {
   position: fixed;
   left: 0;
-  top: 0;
+
   z-index: 205;
   height: 100vh;
   transition: 0.3s;
@@ -29,6 +29,7 @@
       }
     }
     .content {
+      display: contents;
       .link {
         .content {
           .item-title {
@@ -134,4 +135,21 @@
 }
 .hide {
   display: none;
+}
+
+@media (max-width: 700px) {
+  .content {
+    display: none;
+  }
+  .sidebar {
+     top: 0;
+    background: none;
+    &.expanded {
+      background-color: #397bff !important;
+    }
+  }
+}
+
+.header{
+  height: 13%;
 }
