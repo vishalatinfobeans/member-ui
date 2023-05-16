@@ -1,5 +1,5 @@
 <div class="container-fluid">
-  <div *ngIf="isLoggedIn$ | async">
+  <div >
     <app-header></app-header>
   </div>
   <div class="sidebar" *ngIf="isLoggedIn$ | async">
@@ -9,7 +9,7 @@
     <router-outlet>
     </router-outlet>
   </div>
-  <div *ngIf="isLoggedIn$ | async">
+  <div >
     <app-footer></app-footer>
   </div>
 
