@@ -1,0 +1,46 @@
+.secondry-nav {
+  display: contents;
+}
+.badge-nav {
+  background-color: azure;
+  border-bottom: 2px solid black;
+}
+@media (min-width: 632px) {
+  .secondry-nav {
+    display: none;
+  }
+}
+.item-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.nav-content {
+  width: inherit;
+}
+
+.reward-badge {
+  color: rgb(74, 211, 74);
+  font-size: 15px;
+  font-weight: bolder;
+}
+.nav-badge-icon {
+  font-size: 10px;
+  vertical-align: super;
+}
+.badge-title {
+  font-size: 10px;
+}
+.bar-block {
+  border-right: 1px solid black;
+}
+.amount-block {
+  border-left: 1px solid black;
+}
+.bar-block,
+.amount-block {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}

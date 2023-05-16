@@ -137,20 +137,18 @@
   display: none;
 }
 
-@media (max-width: 700px) {
+@media (max-width: 631px) {
   .content {
     display: none;
   }
   .sidebar {
-     top: 0;
+    top: 0;
     background: none;
     &.expanded {
       background-color: #397bff !important;
     }
   }
-  .header{
+  .header {
     height: 66px;
   }
 }
-
-

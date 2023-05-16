@@ -6,6 +6,8 @@ import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
 import { SideBarComponent } from './side-bar/side-bar.component';
 import { CircularProgressBarComponent } from './circular-progress-bar/circular-progress-bar.component';
+import { NavbarBadgeComponent } from './navbar-badge/navbar-badge.component';
+import { SecondaryNavbarComponent } from './secondary-navbar/secondary-navbar.component';
 
 
 
@@ -14,7 +16,9 @@ import { CircularProgressBarComponent } from './circular-progress-bar/circular-p
     HeaderComponent,
     FooterComponent,
     SideBarComponent,
-    CircularProgressBarComponent
+    CircularProgressBarComponent,
+    NavbarBadgeComponent,
+    SecondaryNavbarComponent
   ],
   imports: [
     CommonModule,
