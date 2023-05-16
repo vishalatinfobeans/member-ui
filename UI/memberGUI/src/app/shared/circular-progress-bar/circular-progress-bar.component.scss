@@ -1,0 +1,43 @@
+.progress-circle {
+  position: relative;
+  width: 35px;
+  height: 35px;
+
+
+}
+
+.progress-ring {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.progress-ring__circle {
+  fill: none;
+  stroke: #f3f3f3;
+  stroke-width: 5;
+}
+
+.progress-ring__circle-progress {
+  fill: none;
+  stroke: #0cff4d;
+  stroke-width: 5;
+  stroke-linecap: round;
+  stroke-dasharray: 88.357;
+  stroke-dashoffset: 88.357;
+  transition: stroke-dashoffset 0.5s;
+}
+
+.progress-ring__circle-background {
+  fill: black;
+}
+
+.progress-label {
+  font-size: 12px;
+  font-weight: bold;
+  fill: #ffffff;
+}
+
+.progress-label--visible {
+  opacity: 1;
+}
