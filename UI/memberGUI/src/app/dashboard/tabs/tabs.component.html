@@ -1,0 +1,33 @@
+<div class="tab-structure mt-5">
+  <div class="tab">
+    <button
+      class="tablinks"
+      [class.active]="activeTab === 'tab1'"
+      (click)="openTab('tab1')"
+    >
+      Promotions
+    </button>
+    <button
+      class="tablinks"
+      [class.active]="activeTab === 'tab2'"
+      (click)="openTab('tab2')"
+    >
+      Just for you
+    </button>
+  </div>
+  <div
+    id="promotion"
+    class="tabcontent"
+    [style.display]="activeTab === 'tab1' ? 'block' : 'none'"
+  >
+    <app-promotions></app-promotions>
+  </div>
+
+  <div
+    id="side-panel"
+    class="tabcontent pt-5"
+    [style.display]="activeTab === 'tab2' ? 'block' : 'none'"
+  >
+    <app-info-side-panel></app-info-side-panel>
+  </div>
+</div>

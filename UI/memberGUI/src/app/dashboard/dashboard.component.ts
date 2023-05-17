@@ -8,10 +8,11 @@ import { ApiService } from '../api.service';
 })
 export class DashboardComponent implements OnInit {
 
-  constructor(private apiService: ApiService) {}
+  constructor(private apiService: ApiService) { }
 
   ngOnInit(): void {
     // this.apiService.GET("http://localhost:1337/api/restaurants").subscribe(res => console.log(res));
   }
+
 
 }

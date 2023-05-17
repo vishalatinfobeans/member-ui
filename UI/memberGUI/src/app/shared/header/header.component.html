@@ -1,20 +1,24 @@
-<nav
-  class="navbar navbar-expand-lg navbar-light g-0"
-  style="background-color: #e3f2fd"
->
-  <div class="container-fluid">
-    <a class="navbar-brand" href="#">
-      <img
-        src="assets/images/VL_Logo_VLG_Shadow.png"
-        alt=""
-        width="200"
-        height="60"
-        class="nav-image"
-    /></a>
-    <div class="badge-item" id="navbarSupportedContent">
-      <ul class="navbar-nav me-auto mb-2 mb-lg-0"></ul>
-      <app-navbar-badge></app-navbar-badge>
+<div class="main-nav">
+  <nav
+    class="navbar navbar-expand-lg navbar-light g-0"
+    style="background-color: #e3f2fd"
+  >
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#">
+        <img
+          src="assets/images/VL_Logo_VLG_Shadow.png"
+          alt=""
+          width="200"
+          height="60"
+          class="nav-image"
+      /></a>
+      <div class="badge-item" id="navbarSupportedContent">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0"></ul>
+        <app-navbar-badge *ngIf="isLoggedIn$ | async"></app-navbar-badge>
+      </div>
     </div>
-  </div>
-</nav>
-<app-secondary-navbar></app-secondary-navbar>
+  </nav>
+  <ng-container *ngIf="isLoggedIn$ | async"
+    ><app-secondary-navbar class="child-nav"></app-secondary-navbar
+  ></ng-container>
+</div>

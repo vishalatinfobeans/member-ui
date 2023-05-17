@@ -6,7 +6,7 @@ import { Component } from '@angular/core';
   styleUrls: ['./footer.component.scss']
 })
 export class FooterComponent {
-  title = 'Incentivize Health Admin'; 
+  title = 'Incentivize Health Admin';
   currentYear = (new Date()).getFullYear().toString();
-  buildDisplayVersion='1.0';
+  buildDisplayVersion = '1.0';
 }

@@ -1,0 +1,16 @@
+.box {
+  position: relative;
+  width: 100%;
+  padding-right: 15px;
+  padding-left: 15px;
+}
+.our-services {
+  margin-top: 35px;
+  padding-bottom: 30px;
+  padding: 15px 25px;
+  min-height: 140px;
+  text-align: center;
+  border-radius: 10px;
+  transition: all 0.4s ease-in-out;
+  box-shadow: 0 0 25px 0 rgba(20, 27, 202, 0.17);
+}

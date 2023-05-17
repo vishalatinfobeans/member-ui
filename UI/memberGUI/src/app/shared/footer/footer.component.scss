@@ -1,16 +1,16 @@
-.footer{
-    position:fixed ;
-    bottom: 0;
-    width: 100%;
-    border: 1px solid rgb(7, 125, 229);
-    background: rgb(193, 214, 230);
-    height: 30px;
-    z-index: 205;
+.footer {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  border: 1px solid rgb(7, 125, 229);
+  background: rgb(193, 214, 230);
+  height: 30px;
+  z-index: 205;
 }
 
 @media (max-width: 768px) {
   .footer {
-   overflow: scroll;
-   overflow-x: visible;
+    overflow: scroll;
+    overflow-x: visible;
   }
 }
