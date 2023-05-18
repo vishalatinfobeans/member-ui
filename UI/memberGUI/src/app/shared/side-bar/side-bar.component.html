@@ -1,7 +1,7 @@
-<div class="sidebar" [ngClass]="{ expanded: isExpanded }">
+<div class="sidebar" [ngClass]="{ expanded: isExpanded }" id="sidebar">
   <div class="header">
     <h1 class="head-title">Hello User!</h1>
-    <div class="toggle" (click)="handleSidebarToggle()" style="cursor: pointer;">
+    <div class="toggle" (click)="handleSidebarToggle()" style="cursor: pointer">
       <i
         [ngClass]="{ hide: !isExpanded }"
         class="fa-solid fa-xmark fa-lg sidebar-icon"
@@ -39,7 +39,7 @@
         <div class="item-title">Q/A</div>
       </div>
     </div>
-    <div class="link" (click) = "logout()" title="Logout">
+    <div class="link" (click)="logout()" title="Logout">
       <div class="content">
         <div class="icon">
           <i class="fa-sharp fa-solid fa-right-from-bracket"></i>

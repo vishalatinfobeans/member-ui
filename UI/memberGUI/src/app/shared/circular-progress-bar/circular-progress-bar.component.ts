@@ -6,10 +6,10 @@ import { Component, Input } from '@angular/core';
   styleUrls: ['./circular-progress-bar.component.scss']
 })
 export class CircularProgressBarComponent {
-  @Input() progress: number =0;
+  @Input() progress: number = 0;
   calcProgressOffset(): number {
-    const circumference = 2 * Math.PI * 54; // Circumference of the circle (2πr)
-    const progressOffset = circumference - (this.progress / 100) * circumference; // Calculate the offset based on the progress
+    const circumference = 2 * Math.PI * 15;
+    const progressOffset = circumference - (this.progress / 100) * circumference;
     return progressOffset;
   }
 }

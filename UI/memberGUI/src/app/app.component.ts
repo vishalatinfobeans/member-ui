@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, HostListener } from '@angular/core';
 import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
 import { AuthService } from './authentication/auth.service';
@@ -15,5 +15,8 @@ export class AppComponent {
   constructor(private router: Router, private authService: AuthService){
     this.isLoggedIn$ = this.authService.isLoggedIn;
   }
+
+
+
 
 }

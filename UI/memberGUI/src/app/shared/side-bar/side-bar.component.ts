@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, HostListener, OnInit } from '@angular/core';
 import { AuthService } from './../../authentication/auth.service';
 
 
@@ -9,19 +9,21 @@ import { AuthService } from './../../authentication/auth.service';
 })
 export class SideBarComponent implements OnInit {
 
-  constructor(private authService: AuthService) {}
-   
+  constructor(private authService: AuthService) { }
+
   isExpanded: boolean = false;
 
   ngOnInit(): void {
-    
+
   }
 
-  handleSidebarToggle=()=>{
-    this.isExpanded=!this.isExpanded;
+  handleSidebarToggle = () => {
+    this.isExpanded = !this.isExpanded;
   }
 
   logout() {
     this.authService.logout();
   }
+
+
 }

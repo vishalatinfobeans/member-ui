@@ -10,11 +10,19 @@ import { HttpClientModule } from '@angular/common/http';
 import { AppComponent } from './app.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { HeaderComponent } from './shared/header/header.component';
+import { PromotionsComponent } from './dashboard/promotions/promotions.component';
+import { InfoSidePanelComponent } from './dashboard/info-side-panel/info-side-panel.component';
+import { GridComponent } from './dashboard/grid/grid.component';
+import { TabsComponent } from './dashboard/tabs/tabs.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     DashboardComponent,
+    PromotionsComponent,
+    InfoSidePanelComponent,
+    GridComponent,
+    TabsComponent,
   ],
   imports: [
     BrowserModule,
