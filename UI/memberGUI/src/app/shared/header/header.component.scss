@@ -1,32 +1,30 @@
 @import "~@fortawesome/fontawesome-free/css/all.css";
 .nav-badge {
   margin-right: 70px;
-  padding-top: 0px;
-  padding-bottom: 0px;
 }
-@media (max-width: 768px) {
+.nav-image {
+  margin-left: 46px;
+}
+@media (max-width: 631px) {
   .nav-badge {
     margin-right: auto;
+    margin-left: 50px;
+  }
+  .nav-image {
+    width: 100px;
+    height: 40px;
+  }
+  .navbar-brand {
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .badge-item {
+    display: none;
   }
 }
-
 .navbar {
   position: static;
   width: 100%;
-}
-.nav-badge {
-  .reward-badge {
-    color: rgb(74, 211, 74);
-    font-size: 15px;
-    font-weight: bolder;
-  }
-  .nav-badge-icon {
-    font-size: 10px;
-    vertical-align: super;
-  }
-  .badge-title {
-    font-size: 10px;
-  }
 }
 
 .nav-title {
@@ -34,10 +32,28 @@
   font-weight: 700;
 }
 
-.nav-image {
-  margin-left: 45px;
+.hide {
+  display: none;
 }
 
-.hide{
-  display:none
+.navbar {
+  width: 100%;
+  padding-bottom: 0px;
+}
+
+.badge-item {
+  float: right;
+}
+.navbar {
+}
+.child-nav {
+  width: 100%;
+}
+
+.main-nav {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 205;
+  border-bottom: 2px solid black;
 }

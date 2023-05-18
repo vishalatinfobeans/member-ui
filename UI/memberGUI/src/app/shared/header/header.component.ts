@@ -8,9 +8,9 @@ import { AuthService } from 'src/app/authentication/auth.service';
   styleUrls: ['./header.component.scss']
 })
 export class HeaderComponent {
-  @Input()  isLogin:boolean =false;
+  @Input() isLogin: boolean = false;
   isLoggedIn$!: Observable<boolean>;
-  constructor(private authService: AuthService){
+  constructor(private authService: AuthService) {
     this.isLoggedIn$ = this.authService.isLoggedIn;
   }
 }

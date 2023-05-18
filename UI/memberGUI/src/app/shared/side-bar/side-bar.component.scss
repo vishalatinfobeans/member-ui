@@ -12,13 +12,12 @@
   width: 0.35em;
 }
 .sidebar {
+  margin-top: 80px;
   position: fixed;
   left: 0;
-  top: 0;
   z-index: 205;
   height: 100vh;
   transition: 0.3s;
-
   width: 60px;
   &.expanded {
     width: 170px;
@@ -29,6 +28,7 @@
       }
     }
     .content {
+      display: contents;
       .link {
         .content {
           .item-title {
@@ -78,9 +78,7 @@
       .children {
         .content {
           background: #27283a;
-          // padding-left: 30px;
           padding-left: 10px;
-
           &.active {
             background: #191a27;
           }
@@ -91,11 +89,8 @@
         align-items: center;
         justify-content: center;
         padding: 10px;
-
         cursor: pointer;
-
         transition: 0.3s;
-
         &:hover {
           background: #0f1017;
           .item-title {
@@ -134,4 +129,21 @@
 }
 .hide {
   display: none;
+}
+
+@media (max-width: 631px) {
+  .content {
+    display: none;
+  }
+  .sidebar {
+    margin-top: 0px;
+    top: 0;
+    background: none;
+    &.expanded {
+      background-color: #397bff !important;
+    }
+  }
+  .header {
+    height: 60px;
+  }
 }
