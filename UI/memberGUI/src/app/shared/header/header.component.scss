@@ -1,0 +1,59 @@
+@import "~@fortawesome/fontawesome-free/css/all.css";
+.nav-badge {
+  margin-right: 70px;
+}
+.nav-image {
+  margin-left: 46px;
+}
+@media (max-width: 631px) {
+  .nav-badge {
+    margin-right: auto;
+    margin-left: 50px;
+  }
+  .nav-image {
+    width: 100px;
+    height: 40px;
+  }
+  .navbar-brand {
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .badge-item {
+    display: none;
+  }
+}
+.navbar {
+  position: static;
+  width: 100%;
+}
+
+.nav-title {
+  font-size: 16px;
+  font-weight: 700;
+}
+
+.hide {
+  display: none;
+}
+
+.navbar {
+  width: 100%;
+  padding-bottom: 0px;
+}
+
+.badge-item {
+  float: right;
+}
+.navbar {
+}
+.child-nav {
+  width: 100%;
+}
+
+.main-nav {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 205;
+  border-bottom: 2px solid black;
+}
