@@ -1,6 +1,7 @@
 .tab-structure {
   width: 95%;
   margin-left: 3%;
+
 }
 
 .tab {
@@ -33,3 +34,11 @@
   border: 1px solid #ccc;
   border-top: none;
 }
+
+@media(max-width:645px)
+{
+  .tab-structure{
+    padding-top: 2.5rem !important;
+  }
+}
+
