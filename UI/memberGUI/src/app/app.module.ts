@@ -14,6 +14,7 @@ import { PromotionsComponent } from './dashboard/promotions/promotions.component
 import { InfoSidePanelComponent } from './dashboard/info-side-panel/info-side-panel.component';
 import { GridComponent } from './dashboard/grid/grid.component';
 import { TabsComponent } from './dashboard/tabs/tabs.component';
+import { RedemptionCatalogComponent } from './redemption-catalog/redemption-catalog.component';
 
 @NgModule({
   declarations: [
@@ -23,6 +24,7 @@ import { TabsComponent } from './dashboard/tabs/tabs.component';
     InfoSidePanelComponent,
     GridComponent,
     TabsComponent,
+    RedemptionCatalogComponent,
   ],
   imports: [
     BrowserModule,
