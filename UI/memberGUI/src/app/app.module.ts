@@ -1,6 +1,8 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { RouterModule } from '@angular/router';
+
 
 import { AppRoutingModule } from './app-routing.module';
 import { SharedModule } from './shared/shared.module';
@@ -16,6 +18,7 @@ import { PromotionsComponent } from './dashboard/promotions/promotions.component
 import { InfoSidePanelComponent } from './dashboard/info-side-panel/info-side-panel.component';
 import { GridComponent } from './dashboard/grid/grid.component';
 import { TabsComponent } from './dashboard/tabs/tabs.component';
+import { CatalogueComponent } from './catalogue/catalogue.component';
 
 @NgModule({
   declarations: [
@@ -25,19 +28,21 @@ import { TabsComponent } from './dashboard/tabs/tabs.component';
     InfoSidePanelComponent,
     GridComponent,
     TabsComponent,
+    CatalogueComponent,
   ],
   imports: [
     BrowserModule,
+    RouterModule,
     AppRoutingModule,
     NgbModule,
     SharedModule,
     AuthenticationModule,
     HttpClientModule,
     ServiceWorkerModule.register('ngsw-worker.js', {
-      // enabled: environment.production,
+      enabled: environment.production,
       // Register the ServiceWorker as soon as the application is stable
       // or after 30 seconds (whichever comes first).
-      // registrationStrategy: 'registerWhenStable:30000'
+      registrationStrategy: 'registerWhenStable:30000'
     })
   ],
   providers: [],

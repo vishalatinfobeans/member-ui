@@ -1,0 +1,129 @@
+<div class="row">
+
+  <div class="col-sm-12 col-lg-5 col-md-5">
+	<button
+		type="button"
+		class="btn btn-outline-primary"
+		(click)="collapse.toggle()"
+		[attr.aria-expanded]="!isCollapse"
+		aria-controls="collapseExample"
+	>
+		Toggle with Function
+	</button>
+  <div #collapse="ngbCollapse" [(ngbCollapse)]="isCollapse">
+      <div class="card">
+        <div class="card-body">You can collapse this card by clicking one Toggle button</div>
+      </div>
+    </div>
+  </div>
+  <div class="col-sm-12 col-lg-5 col-md-5">
+    <button
+		type="button"
+		class="btn btn-outline-primary"
+		(click)="collapse.toggle()"
+		[attr.aria-expanded]="!isCollapse"
+		aria-controls="collapseExample"
+	>
+		Toggle with Function
+	</button>
+  <div #collapse="ngbCollapse" [(ngbCollapse)]="isCollapse">
+      <div class="card">
+        <div class="card-body">You can collapse this card by clicking one Toggle button</div>
+      </div>
+    </div>
+	<!-- <button
+		type="button"
+		class="btn btn-outline-primary ms-2"
+		(click)="isCollapsed = ! isCollapsed"
+		[attr.aria-expanded]="!isCollapsed"
+		aria-controls="collapseExample"
+	>
+		Toggle with Two Way Binding
+	</button> -->
+    <!-- <div #collapse="ngbCollapse" [(ngbCollapse)]="isCollapsed">
+      <div class="card">
+        <div class="card-body">You can collapse this card by clicking one Toggle button</div>
+      </div>
+    </div> -->
+  </div>
+  
+  <div class="row">
+    <div class="col-lg-5">
+    <a class="btn btn-primary" data-bs-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
+      Link with href
+    </a>
+  </div>
+    <div class="collapse" id="collapseExample">
+      <ng-container *ngTemplateOutlet="sayHelloTemplate">
+        This text is not displayed
+      </ng-container> 
+     
+    </div>
+    <div class="col-lg-5">
+    <button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+      Button with data-bs-target
+    </button>
+  </div>
+  </div>
+  <!-- <div class="collapse" id="collapseExample">
+    <ng-container *ngTemplateOutlet="sayHelloTemplate">
+      This text is not displayed
+    </ng-container> 
+   
+  </div> -->
+
+
+</div>
+
+<ng-template #sayHelloTemplate>
+  <div class="card card-body">
+    Some placeholder content for the collapse component. This panel is hidden by default but revealed when the user activates the relevant trigger.
+  </div>
+</ng-template>
+
+<!-- <div ngbAccordion [closeOthers]="true">
+	<div ngbAccordionItem *ngFor="let panel of panels" [collapsed]="panel !== 'First'">
+		<h2 ngbAccordionHeader>
+			<button ngbAccordionButton>{{ panel }}</button>
+		</h2>
+		<div ngbAccordionCollapse>
+			<div ngbAccordionBody>
+				<ng-template>
+					Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon
+					officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf
+					moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim
+					keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur
+					butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably
+					haven't heard of them accusamus labore sustainable VHS.
+				</ng-template>
+			</div>
+		</div>
+	</div>
+</div> -->
+
+
+<div class="row">
+<ng-container *ngFor="let panel of panels">
+  <div class="col-md-5">
+<div ngbAccordion [closeOthers]="true">
+	<div ngbAccordionItem  [collapsed]="panel !== 'First'">
+		<h2 ngbAccordionHeader>
+			<button ngbAccordionButton>{{ panel }}</button>
+		</h2>
+		<div ngbAccordionCollapse>
+			<div ngbAccordionBody>
+				<ng-template>
+					Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon
+					officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf
+					moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim
+					keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur
+					butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably
+					haven't heard of them accusamus labore sustainable VHS.
+				</ng-template>
+			</div>
+		</div>
+	</div>
+</div>
+</div>
+</ng-container>
+</div>
