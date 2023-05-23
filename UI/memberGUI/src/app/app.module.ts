@@ -7,9 +7,11 @@ import { RouterModule } from '@angular/router';
 import { AppRoutingModule } from './app-routing.module';
 import { SharedModule } from './shared/shared.module';
 import { AuthenticationModule } from './authentication/authentication.module';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HttpClient } from '@angular/common/http';
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '../environments/environment';
+import { TranslateModule, TranslateLoader, TranslateService } from '@ngx-translate/core';
+import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 
 import { AppComponent } from './app.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
@@ -19,6 +21,11 @@ import { InfoSidePanelComponent } from './dashboard/info-side-panel/info-side-pa
 import { GridComponent } from './dashboard/grid/grid.component';
 import { TabsComponent } from './dashboard/tabs/tabs.component';
 import { CatalogueComponent } from './catalogue/catalogue.component';
+import { RedemptionCatalogComponent } from './redemption-catalog/redemption-catalog.component';
+
+export function HttpLoaderFactory(http: HttpClient) {
+  return new TranslateHttpLoader(http);
+}
 
 @NgModule({
   declarations: [
@@ -29,6 +36,7 @@ import { CatalogueComponent } from './catalogue/catalogue.component';
     GridComponent,
     TabsComponent,
     CatalogueComponent,
+    RedemptionCatalogComponent,
   ],
   imports: [
     BrowserModule,
@@ -38,6 +46,13 @@ import { CatalogueComponent } from './catalogue/catalogue.component';
     SharedModule,
     AuthenticationModule,
     HttpClientModule,
+    TranslateModule.forRoot({
+      loader: {
+        provide: TranslateLoader,
+          useFactory: HttpLoaderFactory,
+          deps: [HttpClient]
+      }
+    }),
     ServiceWorkerModule.register('ngsw-worker.js', {
       enabled: environment.production,
       // Register the ServiceWorker as soon as the application is stable
@@ -45,7 +60,8 @@ import { CatalogueComponent } from './catalogue/catalogue.component';
       registrationStrategy: 'registerWhenStable:30000'
     })
   ],
-  providers: [],
+  exports: [TranslateModule],
+  providers: [TranslateService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

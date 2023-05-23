@@ -12,12 +12,7 @@ export class DashboardComponent implements OnInit {
   promotions :any;
 
   ngOnInit(): void {
-    this.apiService.GET("http://localhost:1337/api/promotions").subscribe((res: any) => {
-      console.log(res)
-      const {body : { data }} = res;
-      this.promotions = data || [];
-      console.log(this.promotions);
-    });
+    this.apiService.GET("http://localhost:1337/api/promotions");
   }
 
 
