@@ -12,13 +12,15 @@
 
 .progress-ring__circle {
   fill: none;
-  stroke: #f3f3f3;
+  // stroke: #f3f3f3;
+  stroke: #fff;
   stroke-width: 5;
 }
 
 .progress-ring__circle-progress {
   fill: none;
-  stroke: #0cff4d;
+  // stroke: #0cff4d;
+  stroke: #5f1680;
   stroke-width: 5;
   stroke-linecap: round;
   stroke-dasharray: 88.357;
@@ -27,13 +29,14 @@
 }
 
 .progress-ring__circle-background {
-  fill: black;
+  // fill: black;
+  fill: #e1d4f0;
 }
 
 .progress-label {
   font-size: 12px;
   font-weight: bold;
-  fill: #ffffff;
+  fill: black;
 }
 
 .progress-label--visible {

@@ -1,15 +1,15 @@
-<div class="footer">
+<div class="footer navbar-fixed-bottom">
   <div class="row" style="justify-content: center" align="center">
     <div class="col-xs-4">
       <p class="footer-content">
         Copyright © Powered by SaveAround, {{ currentYear }}. All rights
-        reserved
+        reserved <ng-container *ngIf="buildDisplayVersion">Ver: {{ buildDisplayVersion }}</ng-container>
       </p>
-      <div class="col-xs-4" style="display: flex; justify-content: center">
+      <!-- <div class="col-xs-4" style="display: flex; justify-content: center">
         <p class="footer-content" *ngIf="buildDisplayVersion">
-          Ver: {{ buildDisplayVersion }}
+          
         </p>
-      </div>
+      </div> -->
     </div>
   </div>
 </div>
