@@ -1,7 +1,11 @@
 .nav-badge {
-  background-color: beige;
+  // background-color: beige;
+  // background-color: #e1d4f0;
+  background-image: linear-gradient(45deg,#7441db,#c89cff);
+    background-repeat: repeat-x;
   .reward-badge {
-    color: rgb(74, 211, 74);
+    // color: rgb(74, 211, 74);
+    color: #5f1680;
     font-size: 15px;
     font-weight: bolder;
   }
@@ -16,4 +20,9 @@
 .progress-item {
   padding-bottom: 1%;
   font-size: x-small;
+}
+
+.text-light{
+  color:white;
+  font-weight: bolder;
 }

@@ -8,7 +8,7 @@ import { AuthenticationModule } from './authentication/authentication.module';
 import { HttpClientModule, HttpClient } from '@angular/common/http';
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '../environments/environment';
-import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
+import { TranslateModule, TranslateLoader, TranslateService } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 
 import { AppComponent } from './app.component';
@@ -55,7 +55,8 @@ export function HttpLoaderFactory(http: HttpClient) {
       registrationStrategy: 'registerWhenStable:30000'
     })
   ],
-  providers: [],
+  exports: [TranslateModule],
+  providers: [TranslateService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
