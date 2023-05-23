@@ -11,6 +11,6 @@ export class CatalogueComponent {
 	public isCollapsed = false;
   public isCollapse =false;
   panels = ['First', 'Second', 'Third'];
-
+  giftCards = [{name: "start"}, {name: "diamond"},{name: "start1"}, {name: "diamond1"},{name: "start2"}, {name: "diamond2"}]
 
 }

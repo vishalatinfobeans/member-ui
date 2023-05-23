@@ -48,22 +48,27 @@
   </div>
   
   <div class="row">
-    <div class="col-lg-5">
-    <a class="btn btn-primary" data-bs-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
-      Link with href
+    <ng-container *ngFor="let giftC of giftCards; let i = index" style="position: relative; float: left !important;">
+    <div class="col-sm-12 col-lg-3 col-md-3 my-3">
+    <a class="btn btn-primary" data-bs-toggle="collapse" href="#collapseExample{{i}}" role="button" aria-expanded="false" aria-controls="collapseExample">
+      
+      <div style="width: 216px; height: 147px;">Link with href {{i}}</div>
     </a>
   </div>
-    <div class="collapse" id="collapseExample">
-      <ng-container *ngTemplateOutlet="sayHelloTemplate">
+  <ng-container>
+    <div class="collapse" id="collapseExample{{i}}">
+      <!-- <ng-container *ngTemplateOutlet="sayHelloTemplate"> -->
         This text is not displayed
-      </ng-container> 
+      <!-- </ng-container>  -->
      
     </div>
-    <div class="col-lg-5">
+  </ng-container>
+    </ng-container>
+    <!-- <div class="col-lg-5">
     <button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
       Button with data-bs-target
     </button>
-  </div>
+  </div> -->
   </div>
   <!-- <div class="collapse" id="collapseExample">
     <ng-container *ngTemplateOutlet="sayHelloTemplate">
