@@ -3,26 +3,26 @@
     <div class="col-sm-9 col-md-7 col-lg-5 mx-auto">
       <div class="card border-0 shadow rounded-3 my-3">
         <div class="card-body p-4 p-sm-5">
-          <h5 class="card-title text-center mb-5 fw-light fs-5">{{ 'Log in to your member account' | translate }}</h5>
+          <h5 class="card-title text-center mb-5 fw-light fs-5">{{lables.title}}</h5>
           <form class="needs-validation" novalidate [formGroup]="loginForm" (ngSubmit)="onSubmit()" >
             <div class="form-floating mb-3">
-              <input class="form-control form-control-sm" formControlName="email" [ngClass]="{'is-invalid':submitted && loginForm['controls']['email']['errors']}" type="email" id="floatingInput" placeholder="{{'name@example.com' | translate }}" required>
-              <label for="floatingInput" class="form-label">{{'Email address' | translate }}</label>
+              <input class="form-control form-control-sm" formControlName="email" [ngClass]="{'is-invalid':submitted && loginForm['controls']['email']['errors']}" type="email" id="floatingInput" placeholder="{{lables.user_id_placeholder}}" required>
+              <label for="floatingInput" class="form-label">{{lables.user_id_lable}}</label>
               <div *ngIf="submitted && loginForm['controls']['email']['errors']" class="text-danger">
                 <div *ngIf="submitted && loginForm['controls']['email']['errors']['required']">
-                  {{'Email is required' | translate }}
+                  {{lables.email_required}}
                 </div>
                 <div *ngIf="submitted && loginForm['controls']['email']['errors']['email']">
-                  {{'Enter correct format of email' | translate }}
+                  {{lables.incorrect_email_format}}
                 </div>
               </div>
             </div>
             <div class="form-floating mb-3">
-              <input formControlName="password" [ngClass]="{'is-invalid':submitted && loginForm['controls']['password']['errors']}" type="password" class="form-control form-control-sm" id="floatingPassword" placeholder="{{'Password' | translate }}" required>
-              <label for="floatingPassword">{{'Password' | translate }}</label>
+              <input formControlName="password" [ngClass]="{'is-invalid':submitted && loginForm['controls']['password']['errors']}" type="password" class="form-control form-control-sm" id="floatingPassword" placeholder="{{lables.password_place_holder}}" required>
+              <label for="floatingPassword">{{lables.password_lable}}</label>
               <div *ngIf="submitted && loginForm['controls']['password']['errors']" class="text-danger">
                 <div *ngIf="submitted && loginForm['controls']['password']['errors']['required']">
-                  {{'Password is required' | translate }}
+                  {{lables.password_required}}
                 </div>
               </div>
             </div>
@@ -34,16 +34,16 @@
               </label>
             </div> -->
             <div class="d-grid">
-              <button class="btn btn-primary btn-sm text-uppercase" type="submit">{{'Sign in' | translate }}</button>
+              <button class="btn btn-primary btn-sm text-uppercase" type="submit">{{lables.sing_in_button_text}}</button>
             </div>
             <div class="d-grid login-helper-text">
-            <a href="#" class="forgot-password"> {{'Forgot Username or password ?' | translate }} </a>
-            <span>{{'Not signed up ?' | translate }}<a href="#" class="forgot-password"> {{'Register Now' | translate }} </a> </span>
+            <a href="#" class="forgot-password"> {{lables.forgot_username_text}} </a>
+            <span>{{lables.not_signed_text}}<a href="#" class="forgot-password"> {{lables.register_now_text}} </a> </span>
             </div>
             <hr class="my-2">
             <div class="d-grid mb-2">
               <button class="btn btn-sm btn-danger text-uppercase" type="submit">
-                <i class="fab fa-google me-2"></i> {{'Sign in with Google' | translate }}
+                <i class="fab fa-google me-2"></i> {{lables.sso_sign_in_lable}}
               </button>
             </div>
             <!-- <div class="d-grid">

@@ -19,6 +19,8 @@ import { InfoSidePanelComponent } from './dashboard/info-side-panel/info-side-pa
 import { GridComponent } from './dashboard/grid/grid.component';
 import { TabsComponent } from './dashboard/tabs/tabs.component';
 import { RedemptionCatalogComponent } from './redemption-catalog/redemption-catalog.component';
+import {DomSanitizer} from '@angular/platform-browser';
+
 
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http);
