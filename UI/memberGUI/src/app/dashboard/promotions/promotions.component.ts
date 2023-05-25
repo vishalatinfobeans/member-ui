@@ -22,7 +22,6 @@ export class PromotionsComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    console.log(moment().subtract(1, 'days'));
     this.getPromotions(this.languageSelected);
   }
 
@@ -34,7 +33,6 @@ export class PromotionsComponent implements OnInit {
         card.attributes.expiring_soon = moment(expiryDate).subtract(card.attributes.expires_in, 'days').format('x');
         card.attributes.display_expiry_flag = expiryDate.getTime();
       }); 
-      console.log(this.promotions) 
     });
   }
 
