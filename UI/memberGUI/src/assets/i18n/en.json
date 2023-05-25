@@ -1,0 +1,26 @@
+{
+  "welcomeMessage": "Thanks for joining, {{ firstName }}! It's great to have you!",
+  "login": {
+    "username": "Enter your user name",
+    "password": "Password here"
+  },
+  "Log in to your member account": "Log in to your member account",
+  "Email address": "Email address",
+  "Email is required": "Email is required",
+  "Enter correct format of email": "Enter correct format of email",
+  "Password": "Password",
+  "Password is required": "Password is required",
+  "Sign in": "Sign in",
+  "Forgot Username or password ?": "Forgot Username or password ?",
+  "Not signed up ?": "Not signed up ?",
+  "Register Now": "Register Now",
+  "Sign in with Google": "Sign in with Google",
+  
+  "404": 404,
+  "Page not found.": "Page not found.",
+  "The page you’re looking for does not exist.": "The page you’re looking for does not exist.",
+  "Go Home": "Go Home",
+  
+  "Just-for-you": "Just for you",
+  "Rewards": "ad"
+}
