@@ -1,0 +1,93 @@
+<div class="row ms-2">
+  <div class="col details-title mb-3 mt-3">Product Title</div>
+  <div class="col close-btn">
+    <i (click)="close(index + 1)" class="fa-solid fa-xmark fa-lg"></i>
+  </div>
+</div>
+<div class="row">
+  <div class="col">
+    <div class="row p-3">
+      <div class="col-12">
+        <img
+          class="details-image"
+          src="{{giftCard?.url}}"
+        />
+      </div>
+      <div class="col-12">
+        <button class="butn">
+          <span class="btn-title">Product Description</span>
+        </button>
+      </div>
+      <div class="col-12">
+        <button class="butn">
+          <span class="btn-title">Delivery Information</span>
+        </button>
+      </div>
+    </div>
+  </div>
+  <div class="col">
+    <div class="row">
+      <div class="col-12">
+        <ul class="remove-icn">
+          <li class="list-item">
+            <span class="list-item-title">TYPE</span>
+            <ul class="remove-icn">
+              <li class="list-subitem">
+                <input type="radio" /> Digital Gift Card
+              </li>
+              <li class="list-subitem">
+                <input type="radio" /> Physical Gift Card
+              </li>
+            </ul>
+          </li>
+          <li class="list-item">
+            <span class="list-item-title">QUANTITY</span>
+            <ul class="remove-icn">
+              <li>
+                <div class="counter row">
+                  <div class="col counter-field">
+                    <input type="text" class="field" [(ngModel)]="count" />
+                  </div>
+                  <div class="col counter-item">
+                    <button class="button" (click)="increaseCount()">+</button>
+                    <button class="button" (click)="decreaseCount()">-</button>
+                  </div>
+                </div>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="col">
+    <div class="row">
+      <div class="col-12">
+        <ul class="remove-icn">
+          <li class="list-item">
+            <span class="list-item-title">VALUE</span>
+            <ul class="remove-icn">
+              <li class="list-subitem">
+                <input type="radio" /> $25 2,500 Points
+              </li>
+              <li class="list-subitem">
+                <input type="radio" />$50 5,000 Points
+              </li>
+              <li class="list-subitem">
+                <input type="radio" />$100 10,000 Points
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="row ms-2">
+  <div class="col">
+    <a href="#" class="policy-url">Terms & Conditions</a>
+  </div>
+  <div class="col text-end">
+    <button class="btn btn-cart">Add To Cart</button>
+  </div>
+</div>

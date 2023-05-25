@@ -12,7 +12,7 @@ export class PromotionsComponent implements OnInit {
   constructor(private apiService: ApiService) {
   }
   ngOnInit(): void {
-    this.apiService.promotions.subscribe(res => { this.promotions = res.data; console.log(res) });
+    this.apiService.promotions.subscribe(res => { this.promotions = res.data;  });
   }
 
 }

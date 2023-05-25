@@ -1,0 +1,84 @@
+@import "~@fortawesome/fontawesome-free/css/all.css";
+
+.details {
+  display: none;
+  height:fit-content ;
+  background-color: #fefcfc;
+  margin: 10px;
+  width: 100%;
+  margin-right: auto;
+  margin-left: auto;
+  border:1px solid black;
+}
+
+.item-col {
+  text-align: center;
+}
+
+.close {
+  color: black;
+}
+
+
+
+.close-btn {
+  padding-right: 20px;
+  text-align: right;
+}
+.details-image {
+  width: 100%;
+  height: fit-content;
+  border-radius: 10px;
+}
+
+.butn{
+  border: none;
+  background: none;
+.btn-title, .policy-url{
+  color:#50a8ea
+}
+}
+.remove-icn{
+  list-style-type: none
+}
+.list-item{
+  margin-bottom: 30px;
+}
+.list-item-title{
+  font-weight: bolder;
+  font-size: medium;
+}
+.list-subitem{
+  padding-top:20px;
+}
+
+
+.counter {
+  text-align: center;
+  margin-top: 20px;
+}
+.count-field {
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+.field{
+  width:40px !important;
+}
+.button {
+  font-size: 18px;
+  padding-left: 10px;
+  padding-right: 10px;
+  border:solid 1px black;
+  cursor: pointer;
+}
+
+.counter-field{
+text-align: right;
+}
+.counter-item{
+text-align: left;
+}
+
+.btn-cart{
+  background-color: #50a8ea;
+}
