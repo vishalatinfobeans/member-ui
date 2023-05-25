@@ -1,0 +1,50 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="#">  <img
+      src="assets/images/VL_Logo_VLG_Shadow.png"
+      alt=""
+      width="200"
+      height="60"
+      class="nav-image"
+    /></a>
+    <button
+      class="navbar-toggler"
+      type="button"
+      data-bs-toggle="collapse"
+      data-bs-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
+    >
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0"></ul>
+      <form class="d-flex item">
+        <button type="button" class="btn btn-primary nav-badge progress-item">
+          <div class="row">
+            <div class="col text-center">
+              <span class="">
+                <app-circular-progress-bar
+                  [progress]="30"
+                ></app-circular-progress-bar>
+              </span>
+            </div>
+            <div class="col">
+              <span class=""
+                >Earned<br />
+                Year to Date
+              </span>
+            </div>
+          </div>
+        </button>
+        <button type="button" class="btn btn-primary nav-badge">
+          <span class="badge-title">My Reward Balance </span><br />
+          <span class="badge badge-light reward-badge"
+            ><span class="nav-badge-icon">$</span>50.00</span
+          >
+        </button>
+      </form>
+    </div>
+  </div>
+</nav>

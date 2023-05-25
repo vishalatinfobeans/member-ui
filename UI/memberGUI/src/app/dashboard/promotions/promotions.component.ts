@@ -20,7 +20,7 @@ export class PromotionsComponent implements OnInit {
       this.getPromotions(data);
     })
   }
-  
+
   ngOnInit(): void {
     console.log(moment().subtract(1, 'days'));
     this.getPromotions(this.languageSelected);
