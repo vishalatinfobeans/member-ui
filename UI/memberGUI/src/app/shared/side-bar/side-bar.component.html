@@ -13,20 +13,20 @@
     </div>
   </div>
   <div class="content" title="Rewards">
-    <div class="link">
+    <div class="link" [routerLink]="['/dashboard']">
       <div class="content">
         <div class="icon">
           <i class="fa-solid fa-award fa-lg sidebar-icon"></i>
         </div>
-        <div class="item-title" [routerLink]="['/dashboard']">Rewards</div>
+        <div class="item-title" >Rewards</div>
       </div>
     </div>
-    <div class="link" title="Communication">
+    <div class="link" title="Redemption" [routerLink]="['/redemption-catalog']">
       <div class="content">
         <div class="icon">
           <i class="fa-solid fa-cart-shopping fa-lg sidebar-icon"></i>
         </div>
-        <div class="item-title"  [routerLink]="['/redemption-catalog']">Redemption </div>
+        <div class="item-title"  >Redemption </div>
       </div>
     </div>
     <div class="link" title="Q/A">
