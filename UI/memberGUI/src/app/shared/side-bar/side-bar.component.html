@@ -12,25 +12,49 @@
       ></i>
     </div>
   </div>
-  <div class="content" title="Rewards">
-    <div class="link" [routerLink]="['/dashboard']">
-      <div class="content">
+  <div class="content">
+    <div class="link" title="Home" [routerLink]="['/home']">
+      <div class="content menu-height">
+        <div class="icon">
+          <i class="fa-solid fa-house fa-lg sidebar-icon"></i> 
+        </div>
+        <div class="item-title" >Home</div>
+      </div>
+    </div>
+    <div class="link" [routerLink]="['/earning-opportunities']" title="Earning Opportunities">
+      <div class="content menu-height">
+        <div class="icon">
+          <i class="fa-solid fa-person-running fa-lg sidebar-icon"></i>
+        </div>
+        <div class="item-title" >Earning Opportunities</div>
+      </div>
+    </div>
+    <div class="link" [routerLink]="['/activity-history']" title="Activity History">
+      <div class="content menu-height">
+        <div class="icon">
+          <i class="fa-solid fa-clock-rotate-left fa-lg sidebar-icon"></i>
+        </div>
+        <div class="item-title" >Activity History</div>
+      </div>
+    </div>
+    <div class="link" [routerLink]="['/reward-accounts']" title="Reward Accounts">
+      <div class="content menu-height">
         <div class="icon">
           <i class="fa-solid fa-award fa-lg sidebar-icon"></i>
         </div>
-        <div class="item-title" >Rewards</div>
+        <div class="item-title" >Reward Accounts</div>
       </div>
     </div>
-    <div class="link" title="Redemption" [routerLink]="['/redemption-catalog']">
-      <div class="content">
+    <div class="link" title="Redeem" [routerLink]="['/redemption-catalog']">
+      <div class="content menu-height">
         <div class="icon">
-          <i class="fa-solid fa-cart-shopping fa-lg sidebar-icon"></i>
+          <i class="fa-solid fa-gift fa-lg sidebar-icon"></i>
         </div>
-        <div class="item-title"  >Redemption </div>
+        <div class="item-title"  > Redeem </div>
       </div>
     </div>
     <div class="link" title="FAQ">
-      <div class="content">
+      <div class="content menu-height">
         <div class="icon">
           <i
             class="fa-sharp fa-solid fa-circle-question fa-lg sidebar-icon"
@@ -40,7 +64,7 @@
       </div>
     </div>
     <div class="link" (click)="logout()" title="Logout">
-      <div class="content">
+      <div class="content menu-height">
         <div class="icon">
           <i class="fa-sharp fa-solid fa-right-from-bracket"></i>
         </div>
