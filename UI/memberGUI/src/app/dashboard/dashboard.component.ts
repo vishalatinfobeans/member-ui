@@ -9,10 +9,9 @@ import { ApiService } from '../api.service';
 export class DashboardComponent implements OnInit {
 
   constructor(private apiService: ApiService) {}
-  promotions :any;
+  // promotions :any;
 
   ngOnInit(): void {
-    this.apiService.GET("http://localhost:1337/api/promotions");
   }
 
 

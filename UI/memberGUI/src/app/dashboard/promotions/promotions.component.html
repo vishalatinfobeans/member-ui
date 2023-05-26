@@ -1,16 +1,41 @@
 <div class="row mb-3">
-  <div *ngFor="let promotion of this.promotions" class="col-md-6">
-    <div class="card box our-services settings">
-    <div class="ribbon ribbon-top-left"><span>New</span></div>
+  <div *ngFor="let promotion of promotions" class="col-md-6">
+    <div class="card box our-services settings" title="{{promotion.attributes.tooltip}}">
+    <div class="ribbon ribbon-top-left">
+      <span *ngIf="(currentDate < promotion.attributes.display_expiry_flag) && (currentDate < promotion.attributes.expiring_soon)" >New</span>
+      <span *ngIf="currentDate > promotion.attributes.display_expiry_flag" class="ribbon-expired">Expired</span>
+      <span *ngIf="(currentDate < promotion.attributes.display_expiry_flag) && (currentDate > promotion.attributes.expiring_soon)" class="ribbon-expiring-soon">Expiring soon</span>
+    </div>
       <div class="card-body">
-        <h5 class="card-title">{{ promotion.attributes.name }}</h5>
-        <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
-        <p class="card-text">
+        <div class="row">
+        <div class="col-3 pad-o">
+        <img class="card-img-left card-image" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQT-6cxJieu0D5m7OFeZOPADoqVns3WP3xRzIbvmCLKUg&usqp=CAU&ec=48600112" alt="...">
+        </div>
+      <div class="col-6 pad-o">
+        <h6 class="card-title card-title-text">{{ promotion.attributes.title }}</h6>
+        <!-- <video class="card-video" controls src="https://www.youtube.com/embed/pWahNIMRxR0"></video> -->
+        <div class="embed-responsive embed-responsive-16by9">
+          <iframe class="card-video embed-responsive-item" src="https://www.youtube.com/embed/pWahNIMRxR0" allowfullscreen></iframe>
+        </div>
+        <h6 class="card-subtitle mb-2 text-muted card-title-text">{{ promotion.attributes.subtitle }}</h6>
+      </div>
+      <div class="col-3 pad-o">
+        <p class="card-text-size">{{ promotion.attributes.display_amount }}
+        <img class="card-image-30" src="./../../../assets/images/{{promotion.attributes.image_url}}" alt="">
+          <br/>
+        <span class="card-text-size">{{ promotion.attributes.display_currency }}</span>
+      </p>
+      </div>
+      </div>
+        <p class="card-text card-text-size">
           {{ promotion.attributes.description }}
         </p>
+        <p class="card-text card-text-size">
+          {{ promotion.attributes.disclaimer }}
+        </p>
       </div>
-      <div class="card-footer footer">
-        <a href="#" class="btn button-survey">Take Survey</a>
+      <div class="card-footer footer pad-top-o">
+        <a href="#" class="btn button-survey btn-sm">{{ promotion.attributes.button_text }}</a>
       </div>
     </div>
   </div>
