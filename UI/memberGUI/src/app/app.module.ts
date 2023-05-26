@@ -12,14 +12,17 @@ import { TranslateModule, TranslateLoader, TranslateService } from '@ngx-transla
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 
 import { AppComponent } from './app.component';
-import { DashboardComponent } from './dashboard/dashboard.component';
-import { PromotionsComponent } from './dashboard/promotions/promotions.component';
-import { InfoSidePanelComponent } from './dashboard/info-side-panel/info-side-panel.component';
-import { GridComponent } from './dashboard/grid/grid.component';
-import { TabsComponent } from './dashboard/tabs/tabs.component';
+import { EarningOpportunitiesComponent } from './earning-opportunities/earning-opportunities.component';
+import { PromotionsComponent } from './earning-opportunities/promotions/promotions.component';
+import { InfoSidePanelComponent } from './earning-opportunities/info-side-panel/info-side-panel.component';
+import { GridComponent } from './earning-opportunities/grid/grid.component';
+import { TabsComponent } from './earning-opportunities/tabs/tabs.component';
 import { RedemptionCatalogComponent } from './redemption-catalog/redemption-catalog.component';
 import { GiftCardDetailsComponent } from './redemption-catalog/gift-card-details/gift-card-details.component';
 import { GiftCardGridComponent } from './redemption-catalog/gift-card-grid/gift-card-grid.component';
+import { HomeComponent } from './home/home.component';
+import { ActivityHistoryComponent } from './activity-history/activity-history.component';
+import { RewardAccountsComponent } from './reward-accounts/reward-accounts.component';
 
 
 export function HttpLoaderFactory(http: HttpClient) {
@@ -29,7 +32,7 @@ export function HttpLoaderFactory(http: HttpClient) {
 @NgModule({
   declarations: [
     AppComponent,
-    DashboardComponent,
+    EarningOpportunitiesComponent,
     PromotionsComponent,
     InfoSidePanelComponent,
     GridComponent,
@@ -37,6 +40,9 @@ export function HttpLoaderFactory(http: HttpClient) {
     RedemptionCatalogComponent,
     GiftCardDetailsComponent,
     GiftCardGridComponent,
+    HomeComponent,
+    ActivityHistoryComponent,
+    RewardAccountsComponent,
   ],
   imports: [
     BrowserModule,
