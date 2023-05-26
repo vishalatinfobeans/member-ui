@@ -1,11 +1,11 @@
-<div>
+<div class="Site">
   <div>
     <app-header></app-header>
   </div>
   <div *ngIf="isLoggedIn$ | async">
     <app-side-bar></app-side-bar>
   </div>
-  <div class="main-content">
+  <div class="main-content Site-content">
     <router-outlet> </router-outlet>
   </div>
   <div>
