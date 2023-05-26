@@ -1,10 +1,42 @@
-<div class="tabs">
-  <div class="tab" [ngClass]="{ active: selectedTab === 'tab1' }" (click)="selectTab('tab1')">All Gift Card</div>
-  <div class="tab" [ngClass]="{ active: selectedTab === 'tab2' }" (click)="selectTab('tab2')">Digital Gift Card</div>
+<div class="row">
+  <div class="col col-lg-12 col-sm-12 col-md-12">
+    <div class="tabs">
+      <div
+        class="tab"
+        [ngClass]="{ active: selectedTab === 'tab1' }"
+        (click)="selectTab('tab1')"
+      >
+        All Gift Card
+      </div>
+      <div
+        class="tab"
+        [ngClass]="{ active: selectedTab === 'tab2' }"
+        (click)="selectTab('tab2')"
+      >
+        Digital Gift Card
+      </div>
+      <form class="d-flex">
+        <input
+          class="form-control me-2"
+          type="search"
+          placeholder="Search"
+          aria-label="Search"
+          [(ngModel)]="searchPrompt"
+          (ngModelChange)="searchRedemption($event)"
+          name="search"
+        />
+      </form>
+    </div>
+  </div>
 </div>
 
 <div class="tab-content">
-  <div *ngIf="selectedTab === 'tab1'"><app-gift-card-grid></app-gift-card-grid></div>
-  <div *ngIf="selectedTab === 'tab2'"><app-gift-card-grid></app-gift-card-grid></div>
+  <div *ngIf="selectedTab === 'tab1'">
+    <app-gift-card-grid
+      [redemptions]="localRedemptionArray"
+    ></app-gift-card-grid>
+  </div>
+  <div *ngIf="selectedTab === 'tab2'">
+    <app-gift-card-grid></app-gift-card-grid>
+  </div>
 </div>
-

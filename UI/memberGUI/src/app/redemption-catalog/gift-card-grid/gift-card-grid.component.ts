@@ -1,4 +1,4 @@
-import { Component, HostListener } from '@angular/core';
+import { Component, HostListener, Input } from '@angular/core';
 import { Redemption } from '../model';
 import { DataService } from '../data.service';
 
@@ -12,55 +12,7 @@ export class GiftCardGridComponent {
   screenHeight!: number;
   divideLenth !: number;
   detailsIdArray: Set<number> = new Set()
-  redemptions: Array<Redemption> = [{
-    url: 'https://icm.aexp-static.com/loyalty/lsm/HRC_GC.png',
-    description: 'Description 1',
-    showDescription: false
-  },
-  {
-    url: 'https://icm.aexp-static.com/loyalty/lsm/largeImage1684244009716.jpg',
-    description: 'Description 2',
-    showDescription: false
-  }
-    ,
-  {
-    url: 'https://icm.aexp-static.com/loyalty/lsm/largeImage1524053602188.jpg',
-    description: 'Description 3',
-    showDescription: false
-  },
-  {
-    url: 'https://icm.aexp-static.com//loyalty/lsm/Homechef.png',
-    description: 'Description 1',
-    showDescription: false
-  },
-  {
-    url: 'https://icm.aexp-static.com/loyalty/lsm/Home_Depot.png',
-    description: 'Description 2',
-    showDescription: false
-  }
-    ,
-  {
-    url: 'https://icm.aexp-static.com/loyalty/lsm/Hotels-com.JPG',
-    description: 'Description 3',
-    showDescription: false
-  },
-  {
-    url: 'https://icm.aexp-static.com/loyalty/lsm/largeImage1638455996557.png',
-    description: 'Description 1',
-    showDescription: false
-  },
-  {
-    url: 'https://icm.aexp-static.com/loyalty/lsm/largeimage1580229696918.png',
-    description: 'Description 2',
-    showDescription: false
-  }
-    ,
-  {
-    url: 'https://icm.aexp-static.com/loyalty/lsm/mandarin.jpg',
-    description: 'Description 2',
-    showDescription: false
-  }
-  ];
+  @Input() redemptions!: Array<Redemption>;
   constructor(private dataService:DataService)
   {
 
