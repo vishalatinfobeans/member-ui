@@ -35,7 +35,7 @@
         </p>
       </div>
       <div class="card-footer footer pad-top-o">
-        <a href="#" class="btn button-survey btn-sm">{{ promotion.attributes.button_text }}</a>
+        <a href="#" class="btn button-survey btn-sm"><app-survey [btnText]="promotion.attributes.button_text" [surveyQuestions]="promotion.attributes.survey_question"></app-survey></a>
       </div>
     </div>
   </div>

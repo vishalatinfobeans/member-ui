@@ -1,0 +1,13 @@
+.survey-option {
+  cursor: pointer;
+  font-size: 14px;
+  margin: 5px;
+  padding: 5px;
+}
+
+.survey-option-selected {
+  color: #fff;
+  background-color: #975aff;
+  border-color: #975aff;
+  border-radius: 20px;
+}

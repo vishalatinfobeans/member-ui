@@ -26,7 +26,7 @@ export class PromotionsComponent implements OnInit {
   }
 
   getPromotions(lan:string) {
-    this.apiService.GET(`promotions?sort=display_order&locale=${lan}`).subscribe(res => { 
+    this.apiService.GET(`promotions?sort=display_order&locale=${lan}&populate=survey_question`).subscribe(res => { 
       this.promotions = res.data;
       this.promotions.map((card: any) => {
         let expiryDate = new Date(card.attributes.display_expiry_flag);

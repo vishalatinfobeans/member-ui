@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule, DomSanitizer } from '@angular/platform-browser';
-import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { ModalDismissReasons, NgbDatepickerModule, NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { FormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 import { SharedModule } from './shared/shared.module';
@@ -23,6 +23,7 @@ import { GiftCardGridComponent } from './redemption-catalog/gift-card-grid/gift-
 import { HomeComponent } from './home/home.component';
 import { ActivityHistoryComponent } from './activity-history/activity-history.component';
 import { RewardAccountsComponent } from './reward-accounts/reward-accounts.component';
+import { SurveyComponent } from './earning-opportunities/survey/survey.component';
 
 
 export function HttpLoaderFactory(http: HttpClient) {
@@ -43,6 +44,7 @@ export function HttpLoaderFactory(http: HttpClient) {
     HomeComponent,
     ActivityHistoryComponent,
     RewardAccountsComponent,
+    SurveyComponent,
   ],
   imports: [
     BrowserModule,
@@ -52,6 +54,7 @@ export function HttpLoaderFactory(http: HttpClient) {
     SharedModule,
     AuthenticationModule,
     HttpClientModule,
+    NgbDatepickerModule,
     TranslateModule.forRoot({
       loader: {
         provide: TranslateLoader,
