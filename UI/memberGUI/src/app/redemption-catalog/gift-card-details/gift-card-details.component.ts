@@ -14,16 +14,27 @@ export class GiftCardDetailsComponent implements OnInit {
   count: number = 0;
   countField: any = document.getElementById('count');
   giftCard!: Redemption
+  cardType!: String;
   constructor(private dataService: DataService) {
     this.dataService.redemption$.subscribe((redemption) => {
-      this.giftCard=redemption;
+      this.giftCard = redemption;
     });
-  
+
+
   }
   ngOnInit(): void {
 
   }
-
+  isDigital = (value: Event) => {
+    if (value.isTrusted) {
+      this.cardType = "digital-card"
+    }
+  }
+  isPhysical = (value: Event) => {
+    if (value.isTrusted) {
+      this.cardType = "physical-card"
+    }
+  }
   close = (id: number) => {
     let element = document.getElementById("#" + id.toString());
     if (element != null)

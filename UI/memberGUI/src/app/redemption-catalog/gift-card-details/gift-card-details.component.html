@@ -8,10 +8,7 @@
   <div class="col-sm-12 col-md-6 col-lg-4">
     <div class="row p-3">
       <div class="col-12">
-        <img
-          class="details-image"
-          src="{{giftCard?.url}}"
-        />
+        <img class="details-image" src="{{ giftCard?.url }}" />
       </div>
       <div class="col-12">
         <button class="butn">
@@ -33,10 +30,22 @@
             <span class="list-item-title">TYPE</span>
             <ul class="remove-icn">
               <li class="list-subitem">
-                <input type="radio" /> Digital Gift Card
+                <input
+                  type="radio"
+                  name="card"
+                  value="physical-card"
+                  (click)="isPhysical($event)"
+                />
+                Physical Gift Card
               </li>
               <li class="list-subitem">
-                <input type="radio" /> Physical Gift Card
+                <input
+                  type="radio"
+                  name="card"
+                  value="digital-card"
+                  (click)="isDigital($event)"
+                />
+                Digital Gift Card
               </li>
             </ul>
           </li>
@@ -88,6 +97,21 @@
     <a href="#" class="policy-url">Terms & Conditions</a>
   </div>
   <div class="col text-end">
-    <button class="btn btn-cart">Reedem</button>
+    <button
+      class="btn btn-cart"
+      data-bs-toggle="modal"
+      data-bs-target="#physical-card-model"
+      *ngIf="cardType === 'physical-card'"
+    >
+      Reedem
+    </button>
+    <button
+      *ngIf="cardType === 'digital-card'"
+      class="btn btn-cart"
+      data-bs-toggle="modal"
+      data-bs-target="#digital-card-model"
+    >
+      Reedem
+    </button>
   </div>
 </div>
