@@ -1,0 +1,26 @@
+.modal-header {
+  background: #1ab394;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+}
+.close {
+  opacity: 1;
+  color: #fff;
+}
+.msg {
+  text-align: center;
+  color: #1ab394;
+  font-size: 24px;
+  font-weight: 500;
+  .msg-text {
+    font-weight: 500;
+    font-size: 16px;
+    color: #222222;
+  }
+}
+.successMsg {
+  color: #1ab394;
+}
+.failMsg {
+  color: #1ab394;
+}

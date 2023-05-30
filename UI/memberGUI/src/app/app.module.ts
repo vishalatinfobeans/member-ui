@@ -20,8 +20,6 @@ import { TabsComponent } from './dashboard/tabs/tabs.component';
 import { RedemptionCatalogComponent } from './redemption-catalog/redemption-catalog.component';
 import { GiftCardDetailsComponent } from './redemption-catalog/gift-card-details/gift-card-details.component';
 import { GiftCardGridComponent } from './redemption-catalog/gift-card-grid/gift-card-grid.component';
-
-
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http);
 }
@@ -36,7 +34,7 @@ export function HttpLoaderFactory(http: HttpClient) {
     TabsComponent,
     RedemptionCatalogComponent,
     GiftCardDetailsComponent,
-    GiftCardGridComponent,
+    GiftCardGridComponent
   ],
   imports: [
     BrowserModule,
