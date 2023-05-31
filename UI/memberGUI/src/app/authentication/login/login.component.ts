@@ -64,7 +64,7 @@ export class LoginComponent implements OnInit {
     this.submitted = true;
     if (this.loginForm.invalid) return ;
     this.authService.login(this.loginForm.value)
-    this.router.navigate(["/dashboard"]);
+    this.router.navigate(["/earning-opportunities"]);
   }
 
 }
