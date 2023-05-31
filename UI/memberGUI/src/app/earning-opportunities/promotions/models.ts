@@ -16,6 +16,7 @@ export interface Promotions {
     video_url: string;
     image_url: string;
     display_expiry_flag:  number;
+    survey_question: Object;
     expiring_soon: number;
     created_by_name: string;
     created_on: string;

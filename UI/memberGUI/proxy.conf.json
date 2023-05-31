@@ -1,0 +1,7 @@
+{
+  "/api": {
+    "target": "https://integration-api.tangocard.com/raas/v2/catalogs",
+    "secure": false,
+    "changeOrigin": true
+  }
+}

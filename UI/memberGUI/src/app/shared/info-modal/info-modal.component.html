@@ -1,0 +1,48 @@
+
+<div class="modal fade" id={{type}} tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content" style="border: none; border-radius: 5px">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">
+          &times;
+        </button>
+        <h4 class="modal-title text-center">
+          <img
+            *ngIf="type == 'success'"
+            src="https://lh3.googleusercontent.com/-Zxh4srAEtU0/Wp0cZV-PJuI/AAAAAAAAD4E/En5x5c53s44jzvG8M0sSyFZXoRhGXfBzwCL0BGAYYCw/h100/2018-03-05.png"
+            alt=""
+          />
+          <img
+            *ngIf="type == 'fail'"
+            src="https://lh3.googleusercontent.com/-ApBj8d4WL1E/Wp0fJeAD6jI/AAAAAAAAD4M/Dh6l_UiA64kln8PS-1SaDQFuhb9KJL40gCL0BGAYYCw/h100/2018-03-05.png"
+            alt=""
+          />
+        </h4>
+      </div>
+      <div class="modal-body">
+        <p class="msg" [ngClass]="type == 'success' ? 'successMsg' : 'failMsg'">
+          {{ title }}
+        </p>
+        <p style="color: #555555">
+          <strong class="msg-text" *ngIf="type == 'success'">
+            Thank you! Your transaction has been successfully processed.
+            <br />An email with redemption instructions will be delivered to
+            {{ emailAddress }}.
+            <br />
+            Your Redemption ID is {{ redemptionID }}.
+          </strong>
+          <strong class="msg-text" *ngIf="type == 'fail'">
+            We’re sorry, there has been an issue completing your transaction.
+            <br />
+            Please try again later.
+          </strong>
+        </p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">
+          Close
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

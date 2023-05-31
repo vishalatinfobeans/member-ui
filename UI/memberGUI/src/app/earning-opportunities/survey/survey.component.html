@@ -1,0 +1,27 @@
+<ng-template #content let-modal>
+	<div class="modal-header">
+		<h4 class="modal-title" id="modal-basic-title">Profile update</h4>
+		<button type="button" class="btn-close" aria-label="Close" (click)="modal.dismiss('Cross click');closeModal()"></button>
+	</div>
+	<div class="modal-body">
+    <ng-container *ngFor="let survey of surveyQuestions.data; let i=index">
+		<div class="mb-4">
+      <label for="dateOfBirth">{{i+1}}) {{survey.attributes.question}}</label>
+      <!-- <div class="input-group"> -->
+        <div class="row">
+          <ng-container *ngFor="let option of survey.attributes.options;let j = index">
+          <div class="col-lg-6 col-md-6 col-sm-6" (click)="selectOption(survey.attributes, option)" ><span [class]="{'survey-option-selected':survey.attributes.selectedOption==option}" class="survey-option">{{getIndexLetter(j)}}. {{option}}</span></div>
+        </ng-container>
+        </div>
+      <!-- </div> -->
+    </div>
+  </ng-container>
+	</div>
+	<div class="modal-footer">
+		<button type="button" class="btn btn-outline-dark" (click)="modal.close('Save click')">Save</button>
+	</div>
+</ng-template>
+
+<a (click)="open(content)">{{btnText}}</a>
+
+<!-- <pre>{{ closeResult }}</pre> -->

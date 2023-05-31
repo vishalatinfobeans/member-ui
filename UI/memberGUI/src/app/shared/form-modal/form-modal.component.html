@@ -1,0 +1,58 @@
+<div
+  class="modal fade"
+  id="{{ elementId }}"
+  tabindex="-1"
+  aria-labelledby="exampleModalLabel"
+  aria-hidden="true"
+>
+  <div class="modal-dialog modal-dialog-centered center">
+    <form [formGroup]="form" (submit)="onFormSubmit($event)">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">{{ title }}</h5>
+          <button
+            type="button"
+            class="btn-close"
+            data-bs-dismiss="modal"
+            aria-label="Close"
+          ></button>
+        </div>
+        <div class="modal-body">
+          <div class="row m-2" *ngFor="let field of fields">
+            <div class="col-4">
+              <label [for]="field.fieldName">{{ field.label }}</label>
+            </div>
+            <div class="col-8">
+              <input
+                [id]="field.fieldName"
+                [formControlName]="field.fieldName"
+                [type]="field.fieldType"
+                class="form-control"
+                aria-label="First name"
+              />
+            </div>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button
+            type="button"
+            class="btn btn-secondary"
+            data-bs-dismiss="modal"
+          >
+            Close
+          </button>
+          <button type="submit" class="btn btn-primary" data-bs-dismiss="modal">
+            Reedem
+          </button>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>
+
+<app-info-modal
+  [type]="'success'"
+  [title]="'Redemption Successful\!'"
+  [emailAddress]="formSubmit?.email"
+></app-info-modal>
+<app-info-modal [type]="'fail'" [title]="'Redemption Failed'"></app-info-modal>
