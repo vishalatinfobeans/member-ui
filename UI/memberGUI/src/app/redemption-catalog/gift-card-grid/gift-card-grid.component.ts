@@ -12,7 +12,7 @@ export class GiftCardGridComponent {
   screenHeight!: number;
   divideLenth !: number;
   detailsIdArray: Set<number> = new Set()
-  @Input() redemptions!: Array<Redemption>;
+  @Input() redemptions!:  any;
   constructor(private dataService:DataService)
   {
 

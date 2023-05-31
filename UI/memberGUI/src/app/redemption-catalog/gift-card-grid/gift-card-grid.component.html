@@ -6,7 +6,8 @@
         [style.min-width]="100 / divideLenth + '%'"
         (click)="openDetails(i + 1, item)"
       >
-        <img class="item" src="{{ item.url }}" />Title {{ i + 1 }}
+        <img class="item" src="{{item.imageUrls['1200w-326ppi']
+        }}" />Title {{ i + 1 }}
       </div>
       <div
         *ngIf="descriptionIndex(i)"
