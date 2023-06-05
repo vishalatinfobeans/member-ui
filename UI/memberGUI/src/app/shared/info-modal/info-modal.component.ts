@@ -1,4 +1,5 @@
 import { Component, Input } from '@angular/core';
+import { DataService } from 'src/app/redemption-catalog/data.service';
 
 @Component({
   selector: 'app-info-modal',
@@ -7,9 +8,8 @@ import { Component, Input } from '@angular/core';
 })
 export class InfoModalComponent {
 
-  @Input() title: string = "";
-  @Input() redemptionID: string | undefined;
-  @Input() emailAddress: string | undefined;
-  @Input() type!: string;
+  @Input() message: any
+  @Input() title: any
+  @Input() id: any
 
 }

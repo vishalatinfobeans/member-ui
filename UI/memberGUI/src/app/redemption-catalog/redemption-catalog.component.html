@@ -32,9 +32,7 @@
 
 <div class="tab-content">
   <div *ngIf="selectedTab === 'tab1'">
-    <app-gift-card-grid
-      [redemptions]="redemptions"
-    ></app-gift-card-grid>
+    <app-gift-card-grid [redemptions]="redemptions"></app-gift-card-grid>
   </div>
   <div *ngIf="selectedTab === 'tab2'">
     <app-gift-card-grid></app-gift-card-grid>

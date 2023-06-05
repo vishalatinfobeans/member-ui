@@ -13,7 +13,7 @@ export class GiftCardDetailsComponent implements OnInit {
   @Input() detailsIdArray: Set<number> = new Set()
   count: number = 0;
   countField: any = document.getElementById('count');
-  giftCard!: Redemption
+  giftCard!: any
   cardType!: String;
   constructor(private dataService: DataService) {
     this.dataService.redemption$.subscribe((redemption) => {
