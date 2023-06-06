@@ -8,11 +8,9 @@ import { ApiService } from '../api.service';
   templateUrl: './redemption-catalog.component.html',
   styleUrls: ['./redemption-catalog.component.scss']
 })
-export class RedemptionCatalogComponent{
+export class RedemptionCatalogComponent implements OnInit {
 
-  constructor(private apiService: ApiService) {
-    this.apiService.getRewardCatalogFromTango()
-  }
+
   digitalRedemptionFields: formFields[] = [
     {
       fieldType: 'text',
@@ -77,87 +75,27 @@ export class RedemptionCatalogComponent{
   ]
   selectedTab: string = 'tab1';
   searchPrompt: string = "";
-  redemptions: Array<Redemption> = [{
-    url: 'https://icm.aexp-static.com/loyalty/lsm/HRC_GC.png',
-    description: 'Description 1',
-    showDescription: false,
-    title: "Title 1",
-    rewardType: "digital-card"
-  },
-  {
-    url: 'https://icm.aexp-static.com/loyalty/lsm/largeImage1684244009716.jpg',
-    description: 'Description 2',
-    showDescription: false,
-    title: "Title 2",
-    rewardType: "physical-card"
+  redemptions!: any;
+  constructor(private apiService: ApiService) {
+
   }
-    ,
-  {
-    url: 'https://icm.aexp-static.com/loyalty/lsm/largeImage1524053602188.jpg',
-    description: 'Description 3',
-    showDescription: false,
-    title: "Title 3",
-    rewardType: "digital-card"
-  },
-  {
-    url: 'https://icm.aexp-static.com//loyalty/lsm/Homechef.png',
-    description: 'Description 1',
-    showDescription: false,
-    title: "Title 4",
-    rewardType: "physical-card"
-  },
-  {
-    url: 'https://icm.aexp-static.com/loyalty/lsm/Home_Depot.png',
-    description: 'Description 2',
-    showDescription: false,
-    title: "Title 5",
-    rewardType: "digital-card"
+  ngOnInit(): void {
+    this.getCatatlogData();
   }
-    ,
-  {
-    url: 'https://icm.aexp-static.com/loyalty/lsm/Hotels-com.JPG',
-    description: 'Description 3',
-    showDescription: false,
-    title: "Title 6",
-    rewardType: "physical-card"
-  },
-  {
-    url: 'https://icm.aexp-static.com/loyalty/lsm/largeImage1638455996557.png',
-    description: 'Description 1',
-    showDescription: false,
-    title: "Title 7",
-    rewardType: "physical-card"
-  },
-  {
-    url: 'https://icm.aexp-static.com/loyalty/lsm/largeimage1580229696918.png',
-    description: 'Description 2',
-    showDescription: false,
-    title: "Title 8",
-    rewardType: "digital-card"
+
+  getCatatlogData(): void {
+    this.apiService.getRewardCatalogFromTango()
+      .subscribe(response => {
+        console.log(response.brands)
+        this.redemptions=response.brands
+      });
   }
-    ,
-  {
-    url: 'https://icm.aexp-static.com/loyalty/lsm/mandarin.jpg',
-    description: 'Description 2',
-    showDescription: false,
-    title: "Title 9",
-    rewardType: "physical-card"
-  }
-  ];
-  localRedemptionArray: Array<Redemption> = this.redemptions;
+
   selectTab(tab: string) {
     this.selectedTab = tab;
-
   }
   searchRedemption(valueToSearch: string) {
-    const regex = new RegExp(valueToSearch, 'i'); // 'i' flag for case-insensitive matching
-    this.redemptions.map((item) => {
-      if (regex.test(item.title)) {
 
-        this.localRedemptionArray.push(item)
-      }
-    })
-    console.log(this.localRedemptionArray);
 
   }
 }

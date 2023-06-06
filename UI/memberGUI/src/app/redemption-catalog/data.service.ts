@@ -8,7 +8,7 @@ import { BehaviorSubject, Observable } from 'rxjs';
 export class DataService {
   redemptionSubject = new BehaviorSubject<any>(null);
   redemption$ = this.redemptionSubject.asObservable();
-  setGigtCardDetails(redeption: Redemption) {
+  setGigtCardDetails(redeption: any) {
     this.redemptionSubject.next(redeption);
 
   }

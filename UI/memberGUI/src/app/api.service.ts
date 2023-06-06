@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 // import { Observable, Subject } from 'rxjs';
 
-import { BehaviorSubject } from 'rxjs';
+import { BehaviorSubject, Observable } from 'rxjs';
 @Injectable({
   providedIn: 'root'
 })
@@ -57,15 +57,8 @@ export class ApiService {
       'authorization': `Basic ${basicToken}`,
       'accept': 'application/json'
     });
-    this.http.get('https://integration-api.tangocard.com/raas/v2/catalogs', { headers })
-      .subscribe({
-        next: (response) => {
-          console.log(response);
-        },
-        error: (error) => {
-          console.error(error);
-        }
-      });
+  return   this.http.get('https://integration-api.tangocard.com/raas/v2/catalogs', { headers })
+
   }
 
 }

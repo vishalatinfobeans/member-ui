@@ -12,10 +12,12 @@ export class GiftCardGridComponent {
   screenHeight!: number;
   divideLenth !: number;
   detailsIdArray: Set<number> = new Set()
-  @Input() redemptions!: Array<Redemption>;
-  constructor(private dataService:DataService)
-  {
-
+  selectedGiftCard!: any
+  @Input() redemptions!: any;
+  constructor(private dataService: DataService) {
+    this.dataService.redemption$.subscribe((redemption) => {
+      this.selectedGiftCard = redemption;
+    });
   }
   ngOnInit() {
     this.getScreenResolution();
@@ -52,7 +54,7 @@ export class GiftCardGridComponent {
   }
 
 
-  openDetails = (index: number,giftCardDetails:Redemption) => {
+  openDetails = (index: number, giftCardDetails: Redemption) => {
     this.dataService.setGigtCardDetails(giftCardDetails);
     let columnPosition = (index % this.divideLenth);
     let id = 0;

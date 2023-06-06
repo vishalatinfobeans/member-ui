@@ -8,15 +8,22 @@
   <div class="col-sm-12 col-md-6 col-lg-4">
     <div class="row p-3">
       <div class="col-12">
-        <img class="details-image" src="{{ giftCard?.url }}" />
+        <img
+          class="details-image"
+          src="{{ giftCard?.imageUrls['1200w-326ppi'] }}"
+        />
       </div>
       <div class="col-12">
-        <button class="butn">
+        <button class="butn" data-bs-toggle="modal" data-bs-target="#details">
           <span class="btn-title">Product Description</span>
         </button>
       </div>
       <div class="col-12">
-        <button class="butn">
+        <button
+          class="butn"
+          data-bs-toggle="modal"
+          data-bs-target="#deliveryInfo"
+        >
           <span class="btn-title">Delivery Information</span>
         </button>
       </div>
@@ -75,15 +82,13 @@
         <ul class="remove-icn">
           <li class="list-item">
             <span class="list-item-title">VALUE</span>
-            <ul class="remove-icn">
+            <ul
+              class="remove-icn"
+              *ngFor="let item of giftCard?.items; let i = index"
+            >
               <li class="list-subitem">
-                <input type="radio" /> $25 2,500 Points
-              </li>
-              <li class="list-subitem">
-                <input type="radio" />$50 5,000 Points
-              </li>
-              <li class="list-subitem">
-                <input type="radio" />$100 10,000 Points
+                <input type="radio" /> ${{ item?.faceValue }}
+                {{ item?.minValue }} Points
               </li>
             </ul>
           </li>
@@ -94,7 +99,13 @@
 </div>
 <div class="row ms-2">
   <div class="col">
-    <a href="#" class="policy-url">Terms & Conditions</a>
+    <a
+      href="#"
+      class="policy-url"
+      data-bs-toggle="modal"
+      data-bs-target="#terms"
+      >Terms & Conditions</a
+    >
   </div>
   <div class="col text-end">
     <button
