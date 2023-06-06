@@ -13,6 +13,7 @@ export class ApiService {
   // selectedlanguage!:Subject<any>;
   baseUrl = 'http://localhost:1337/api/';
   public selectedlanguage = new BehaviorSubject<string>('en');
+  public updatedPromotion = new BehaviorSubject<object>({});
 
   headers= new HttpHeaders()
   .set('Accept', 'application/json')
@@ -22,6 +23,10 @@ export class ApiService {
     return this.selectedlanguage.asObservable();
   }
 
+  get getUpdatedPromotion() {
+    return this.updatedPromotion.asObservable();
+  }
+
   constructor(public http: HttpClient) { }
 
   GET(url: any) {
@@ -29,8 +34,20 @@ export class ApiService {
     // return this.http.get<any>("https://integration-api.tangocard.com/raas/v2/pulse?verbose=true", { 'headers': this.headers });
   }
 
+  POST(url: any, body: any) {
+    return this.http.post<any>(this.baseUrl + url, body, { 'headers': this.headers });
+  }
+
+  PUT(url: any, body: any) {
+    return this.http.put<any>(this.baseUrl + url, body, { 'headers': this.headers });
+  }
+
   setLanguage(lan: any) {
     this.selectedlanguage.next(lan);
+  }
+
+  setUpdatedPromotion(data: any) {
+    this.updatedPromotion.next(data);
   }
 
   getRewardCatalogFromTango() {

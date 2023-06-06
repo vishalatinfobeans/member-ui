@@ -1,5 +1,7 @@
 <div class="row mb-3">
   <div *ngFor="let promotion of promotions" class="col-md-6">
+    <ng-container *ngIf="promotion.attributes.status == 'pending'">
+    <ng-container *ngIf="gatekeeperPromotions[promotion.id]?.status != 'pending'">
     <div class="card box our-services settings" title="{{promotion.attributes.tooltip}}">
     <div class="ribbon ribbon-top-left">
       <span *ngIf="(currentDate < promotion.attributes.display_expiry_flag) && (currentDate < promotion.attributes.expiring_soon)" >New</span>
@@ -15,13 +17,13 @@
         <h6 class="card-title card-title-text">{{ promotion.attributes.title }}</h6>
         <!-- <video class="card-video" controls src="https://www.youtube.com/embed/pWahNIMRxR0"></video> -->
         <div class="embed-responsive embed-responsive-16by9">
-          <iframe class="card-video embed-responsive-item" src="https://www.youtube.com/embed/pWahNIMRxR0" allowfullscreen></iframe>
+          <iframe title="video to play" class="card-video embed-responsive-item" src="https://cdn-0.codingyaar.com/wp-content/uploads/video-in-bootstrap-card.mp4" allowfullscreen></iframe>
         </div>
         <h6 class="card-subtitle mb-2 text-muted card-title-text">{{ promotion.attributes.subtitle }}</h6>
       </div>
       <div class="col-3 pad-o">
         <p class="card-text-size">{{ promotion.attributes.display_amount }}
-        <img class="card-image-30" src="./../../../assets/images/{{promotion.attributes.image_url}}" alt="">
+        <img class="card-image-30" src="{{promotion.attributes.image_url}}" alt="">
           <br/>
         <span class="card-text-size">{{ promotion.attributes.display_currency }}</span>
       </p>
@@ -35,9 +37,88 @@
         </p>
       </div>
       <div class="card-footer footer pad-top-o">
-        <a href="#" class="btn button-survey btn-sm"><app-survey [btnText]="promotion.attributes.button_text" [surveyQuestions]="promotion.attributes.survey_question"></app-survey></a>
+        <ng-container *ngIf="promotion.attributes.button_text.toLowerCase().includes('survey')">
+        <a href="#" class="btn btn-sm" [ngClass]="promotion.attributes.disablePromotion  ? 'disable-btn' : 'button-survey'"><app-survey [promotionData]="promotion" [surveyQuestions]="promotion.attributes.survey_question" (surveyCompletion)="reportSurvey($event, promotion)"></app-survey></a>
+      </ng-container>
+      <ng-container *ngIf="promotion.attributes.button_text.toLowerCase().includes('submit')">
+        <a href="#" class="btn btn-sm" [ngClass]="promotion.attributes.disablePromotion  ? 'disable-btn' : 'button-survey'" (click)="reportSurvey($event, promotion)">{{promotion.attributes.button_text}}</a>
+      </ng-container>
+      <ng-container *ngIf="promotion.attributes.progress_type == 'multi step'">
+        <div class="form-floating mb-3">
+          <input type="number" [(ngModel)]="progressInputValue" class="form-control form-control-sm" (change)="progressChange($event, promotion)">
+        </div>
+        <progress id="file" value="{{progressValue}}" max="100"> {{progressValue}}% </progress>
+      </ng-container>
       </div>
     </div>
+  </ng-container>
+  <ng-container *ngIf="gatekeeperPromotions[promotion.id]?.status == 'pending'">
+    <div class="card card-gatekeeper box our-services settings" title="{{promotion.attributes.tooltip}}">
+        <div class="card-body">
+          <div class="row">
+          <div class="col-3 pad-o">
+          </div>
+        <div class="col-6 pad-o">
+          <span class="card-title disabled-card-title-text">
+          <h6>First complete </h6>
+          <h6><i>{{ gatekeeperPromotions[promotion.id]?.title }}</i></h6>
+          <h6>Gatekeeper promotion to view this promotion</h6>
+        </span>
+          <div class="embed-responsive embed-responsive-16by9">
+          </div>
+        </div>
+        <div class="col-3 pad-o">
+            <br/>
+        </div>
+        </div>
+        </div>
+        <div class="card-footer footer pad-top-o">
+        </div>
+      </div>
+  </ng-container>
+</ng-container>
+  <ng-container *ngIf="promotion.attributes.status == 'complete'">
+    <div class="card card-complete box our-services settings" title="{{promotion.attributes.tooltip}}">
+      <div class="ribbon ribbon-top-left">
+        <span *ngIf="(currentDate < promotion.attributes.display_expiry_flag) && (currentDate < promotion.attributes.expiring_soon)" >New</span>
+        <span *ngIf="currentDate > promotion.attributes.display_expiry_flag" class="ribbon-expired">Expired</span>
+        <span *ngIf="(currentDate < promotion.attributes.display_expiry_flag) && (currentDate > promotion.attributes.expiring_soon)" class="ribbon-expiring-soon">Expiring soon</span>
+      </div>
+        <div class="card-body">
+          <div class="row">
+          <div class="col-3 pad-o">
+          <img class="card-img-left card-image" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQT-6cxJieu0D5m7OFeZOPADoqVns3WP3xRzIbvmCLKUg&usqp=CAU&ec=48600112" alt="...">
+          </div>
+        <div class="col-6 pad-o">
+          <h6 class="card-title card-title-text">{{ promotion.attributes.title }}</h6>
+          <!-- <video class="card-video" controls src="https://www.youtube.com/embed/pWahNIMRxR0"></video> -->
+          <div class="embed-responsive embed-responsive-16by9">
+            <iframe title="video to play" class="card-video embed-responsive-item" src="https://cdn-0.codingyaar.com/wp-content/uploads/video-in-bootstrap-card.mp4" allowfullscreen></iframe>
+          </div>
+          <p class="complete-status">Completed</p>
+          <h6 class="card-subtitle mb-2 text-muted card-title-text">{{ promotion.attributes.subtitle }}</h6>
+        </div>
+        <div class="col-3 pad-o">
+          <p class="card-text-size">{{ promotion.attributes.display_amount }}
+          <img class="card-image-30" src="{{promotion.attributes.image_url}}" alt="">
+            <br/>
+          <span class="card-text-size">{{ promotion.attributes.display_currency }}</span>
+        </p>
+        </div>
+        </div>
+          <p class="card-text card-text-size">
+            {{ promotion.attributes.description }}
+          </p>
+          <p class="card-text card-text-size">
+            {{ promotion.attributes.disclaimer }}
+          </p>
+        </div>
+        <div class="card-footer footer pad-top-o">
+          <!-- <a href="#" class="btn btn-sm" [ngClass]="promotion.attributes.disablePromotion  ? 'button-survey' : 'disable-btn'"><app-survey [promotionData]="promotion" [surveyQuestions]="promotion.attributes.survey_question" (surveyCompletion)="reportSurvey($event, promotion)"></app-survey></a> -->
+        
+        </div>
+      </div>
+  </ng-container>
   </div>
  </div>
 
