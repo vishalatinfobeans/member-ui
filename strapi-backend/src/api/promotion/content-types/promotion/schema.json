@@ -1,0 +1,49 @@
+{
+  "kind": "collectionType",
+  "collectionName": "promotions",
+  "info": {
+    "singularName": "promotion",
+    "pluralName": "promotions",
+    "displayName": "promotion"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "name": {
+      "type": "string"
+    },
+    "description": {
+      "type": "text"
+    },
+    "type": {
+      "type": "biginteger"
+    },
+    "program_id": {
+      "type": "biginteger"
+    },
+    "created_on": {
+      "type": "datetime"
+    },
+    "updated_on": {
+      "type": "datetime"
+    },
+    "status": {
+      "type": "enumeration",
+      "enum": [
+        "active",
+        "inactive"
+      ]
+    },
+    "version": {
+      "type": "biginteger"
+    },
+    "ID": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::promotion-display.promotion-display",
+      "mappedBy": "promotion_id"
+    }
+  }
+}

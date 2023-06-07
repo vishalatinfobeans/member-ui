@@ -1,0 +1,142 @@
+{
+  "kind": "collectionType",
+  "collectionName": "promotion_displays",
+  "info": {
+    "singularName": "promotion-display",
+    "pluralName": "promotion-displays",
+    "displayName": "promotion_display",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "subtitle": {
+      "type": "text"
+    },
+    "image_url": {
+      "type": "text"
+    },
+    "display_amount": {
+      "type": "decimal"
+    },
+    "display_currency": {
+      "type": "string"
+    },
+    "reward_image_url": {
+      "type": "text"
+    },
+    "button_text": {
+      "type": "string"
+    },
+    "button_url": {
+      "type": "text"
+    },
+    "video_url": {
+      "type": "text"
+    },
+    "display_order": {
+      "type": "biginteger"
+    },
+    "display_new_date": {
+      "type": "datetime"
+    },
+    "hide_new_date": {
+      "type": "datetime"
+    },
+    "display_expiry_flag": {
+      "type": "datetime"
+    },
+    "hide_expiry_flag": {
+      "type": "datetime"
+    },
+    "descirption": {
+      "type": "text"
+    },
+    "disclaimer": {
+      "type": "text"
+    },
+    "is_gatekeeper": {
+      "type": "boolean"
+    },
+    "reasonable_alternative_dispaly_link": {
+      "type": "text"
+    },
+    "reasonable_alternative_link_label": {
+      "type": "text"
+    },
+    "tooltip": {
+      "type": "text"
+    },
+    "resonable_alternative_activity_code": {
+      "type": "biginteger"
+    },
+    "reasonable_alternative_attribute_name": {
+      "type": "string"
+    },
+    "new_alternative_code": {
+      "type": "text"
+    },
+    "new_alternative_name": {
+      "type": "text"
+    },
+    "progress_type": {
+      "type": "enumeration",
+      "enum": [
+        "single step",
+        "multi step",
+        "count"
+      ]
+    },
+    "min_count": {
+      "type": "integer"
+    },
+    "max_count": {
+      "type": "integer"
+    },
+    "period": {
+      "type": "biginteger"
+    },
+    "new_promotion_code_code": {
+      "type": "text"
+    },
+    "auto_redeem": {
+      "type": "boolean"
+    },
+    "expires_in": {
+      "type": "integer"
+    },
+    "promotion_id": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::promotion.promotion",
+      "inversedBy": "ID"
+    },
+    "survey_question": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::promotion-survey.promotion-survey",
+      "mappedBy": "ID"
+    },
+    "gatekeeper_promotion_id": {
+      "type": "integer"
+    },
+    "status": {
+      "type": "enumeration",
+      "enum": [
+        "complete",
+        "pending"
+      ]
+    },
+    "no_of_attempts": {
+      "type": "integer"
+    },
+    "progress_input_value": {
+      "type": "biginteger"
+    }
+  }
+}
