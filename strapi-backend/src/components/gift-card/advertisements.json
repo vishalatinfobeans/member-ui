@@ -1,0 +1,32 @@
+{
+  "collectionName": "components_gift_card_advertisements",
+  "info": {
+    "displayName": "advertisements"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "description": {
+      "type": "richtext"
+    },
+    "image_url": {
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ],
+      "type": "media",
+      "multiple": false
+    },
+    "status": {
+      "type": "enumeration",
+      "enum": [
+        "Active",
+        "Inactive"
+      ]
+    }
+  }
+}

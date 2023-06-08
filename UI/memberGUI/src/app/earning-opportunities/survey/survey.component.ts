@@ -1,5 +1,6 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, Output, EventEmitter, OnInit } from '@angular/core';
 import { ModalDismissReasons,NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { ApiService } from 'src/app/api.service';
 
 
 @Component({
@@ -10,11 +11,15 @@ import { ModalDismissReasons,NgbModal } from '@ng-bootstrap/ng-bootstrap';
 export class SurveyComponent implements OnInit{
 
   submitted = false;
+  optionSelected = false;
+  disableTakeSurvey = false;
   closeResult = '';
-  @Input() btnText:any;
+  @Input() promotionData:any;
   @Input() surveyQuestions:any;
+  @Output() surveyCompletion: EventEmitter<number> =   new EventEmitter();
 
-  constructor(private modalService: NgbModal) {}
+
+  constructor(private modalService: NgbModal, private apiService: ApiService) {}
 
   ngOnInit(): void {
     
@@ -22,14 +27,16 @@ export class SurveyComponent implements OnInit{
 
 	open(content: any) {
     console.log(this.surveyQuestions);
-		this.modalService.open(content, { ariaLabelledBy: 'modal-basic-title' }).result.then(
-			(result: any) => {
-				this.closeResult = `Closed with: ${result}`;
-			},
-			(reason: any) => {
-				this.closeResult = `Dismissed ${this.getDismissReason(reason)}`;
-			},
-		);
+    if (this.promotionData.attributes.no_of_attempts < this.promotionData.attributes.max_count) {
+      this.modalService.open(content, { ariaLabelledBy: 'modal-basic-title' }).result.then(
+        (result: any) => {
+          this.closeResult = `Closed with: ${result}`;
+        },
+        (reason: any) => {
+          this.closeResult = `Dismissed ${this.getDismissReason(reason)}`;
+        },
+      );
+    }
 	}
 
   getIndexLetter(index: number): string {
@@ -52,6 +59,7 @@ export class SurveyComponent implements OnInit{
 	}
 
   selectOption(survey:any, option:any) {
+    this.optionSelected = true;
     survey.selectedOption = option;
     console.log(this.surveyQuestions)
   }
@@ -59,6 +67,12 @@ export class SurveyComponent implements OnInit{
   closeModal() {
     console.log("close modal");
     this.surveyQuestions.data.forEach((survey:any)=> delete survey.attributes.selectedOption)
+    this.optionSelected = false;
     console.log(this.surveyQuestions);
+  }
+
+  saveResponse() {
+    console.log(this.surveyQuestions);
+    this.surveyCompletion.emit(this.surveyQuestions);
   }
 }

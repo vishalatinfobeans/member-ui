@@ -4,7 +4,7 @@
       <div class="col text-center g-0">
         <span class="">
           <app-circular-progress-bar
-            [progress]="50"
+            [progress]="totalAmount"
           ></app-circular-progress-bar>
         </span>
       </div>
@@ -19,7 +19,7 @@
   <button type="button" class="btn nav-badge">
     <span class="badge-title text-light">My Reward Balance </span><br />
     <span class="badge badge-light text-light reward-badge"
-      ><span class="nav-badge-icon">$</span>50.00</span
+      ><span class="nav-badge-icon">${{totalAmount}}</span></span
     >
   </button>
 </div>

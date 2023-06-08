@@ -1,0 +1,74 @@
+{
+  "kind": "collectionType",
+  "collectionName": "account_transactions",
+  "info": {
+    "singularName": "account-transaction",
+    "pluralName": "account-transactions",
+    "displayName": "account_transaction",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "type": {
+      "type": "string"
+    },
+    "date": {
+      "type": "datetime"
+    },
+    "account_id": {
+      "type": "integer"
+    },
+    "member_id": {
+      "type": "integer"
+    },
+    "promotion_id": {
+      "type": "integer"
+    },
+    "primary_identifier": {
+      "type": "text"
+    },
+    "amount": {
+      "type": "float"
+    },
+    "description": {
+      "type": "text"
+    },
+    "reward_id": {
+      "type": "integer"
+    },
+    "redemption_id": {
+      "type": "integer"
+    },
+    "transfer_txn_instrument_id": {
+      "type": "integer"
+    },
+    "created_on": {
+      "type": "datetime"
+    },
+    "updated_on": {
+      "type": "datetime"
+    },
+    "reversed_on": {
+      "type": "datetime"
+    },
+    "reversed_by": {
+      "type": "integer"
+    },
+    "is_reverserd": {
+      "type": "boolean"
+    },
+    "status": {
+      "type": "enumeration",
+      "enum": [
+        "Success",
+        "Failed"
+      ]
+    },
+    "survey_response": {
+      "type": "json"
+    }
+  }
+}

@@ -18,10 +18,10 @@
   </ng-container>
 	</div>
 	<div class="modal-footer">
-		<button type="button" class="btn btn-outline-dark" (click)="modal.close('Save click')">Save</button>
+		<button type="button" class="btn btn-outline-dark" (click)="modal.close('Save click');saveResponse()" [disabled]="!optionSelected">Save</button>
 	</div>
 </ng-template>
 
-<a (click)="open(content)">{{btnText}}</a>
+<a (click)="open(content)">{{promotionData.attributes.button_text}}</a>
 
 <!-- <pre>{{ closeResult }}</pre> -->

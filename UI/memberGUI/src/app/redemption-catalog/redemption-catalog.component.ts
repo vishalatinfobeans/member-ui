@@ -117,7 +117,7 @@ export class RedemptionCatalogComponent implements OnInit {
 
   getCatatlogData(): void {
     this.apiService.getRewardCatalogFromTango()
-      .subscribe(response => {
+      .subscribe((response: any) => {
         console.log(response.brands)
         this.allRedemptions = response.brands
         this.loadingCards = false;
