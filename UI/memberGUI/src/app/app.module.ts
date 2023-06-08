@@ -24,6 +24,7 @@ import { HomeComponent } from './home/home.component';
 import { ActivityHistoryComponent } from './activity-history/activity-history.component';
 import { RewardAccountsComponent } from './reward-accounts/reward-accounts.component';
 import { SurveyComponent } from './earning-opportunities/survey/survey.component';
+import { DataService } from './redemption-catalog/data.service';
 
 
 export function HttpLoaderFactory(http: HttpClient) {
@@ -58,8 +59,8 @@ export function HttpLoaderFactory(http: HttpClient) {
     TranslateModule.forRoot({
       loader: {
         provide: TranslateLoader,
-          useFactory: HttpLoaderFactory,
-          deps: [HttpClient]
+        useFactory: HttpLoaderFactory,
+        deps: [HttpClient]
       }
     }),
     ServiceWorkerModule.register('ngsw-worker.js', {
@@ -70,7 +71,7 @@ export function HttpLoaderFactory(http: HttpClient) {
     })
   ],
   exports: [TranslateModule],
-  providers: [TranslateService],
+  providers: [TranslateService, DataService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

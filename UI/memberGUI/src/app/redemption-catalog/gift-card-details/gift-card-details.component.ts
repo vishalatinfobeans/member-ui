@@ -1,5 +1,4 @@
 import { Component, HostListener, Input, OnInit } from '@angular/core';
-import { Redemption } from '../model';
 import { DataService } from '../data.service';
 
 @Component({
@@ -51,4 +50,7 @@ export class GiftCardDetailsComponent implements OnInit {
     }
   }
 
+  selectedItem = (item: any) => {
+    this.dataService.setSelectedCardItem(item);
+  }
 }

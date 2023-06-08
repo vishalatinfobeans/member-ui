@@ -14,11 +14,11 @@ export class ApiService {
   baseUrl = 'http://localhost:1337/api/';
   public selectedlanguage = new BehaviorSubject<string>('en');
 
-  headers= new HttpHeaders()
-  .set('Accept', 'application/json')
+  headers = new HttpHeaders()
+    .set('Accept', 'application/json')
   // .set('Access-Control-Allow-Origin', '*');
 
-  get getSelectedLanguage() { 
+  get getSelectedLanguage() {
     return this.selectedlanguage.asObservable();
   }
 
@@ -34,14 +34,22 @@ export class ApiService {
   }
 
   getRewardCatalogFromTango(): Observable<any> {
-
     const basicToken = 'UUFQbGF0Zm9ybTI6YXBZUGZUNkhOT05wRFJVajNDTEdXWXQ3Z3ZJSE9OcERSVVlQZlQ2SGo=';
     const headers = new HttpHeaders({
       'authorization': `Basic ${basicToken}`,
       'accept': 'application/json'
     });
-  return   this.http.get('https://integration-api.tangocard.com/raas/v2/catalogs', { headers })
+    return this.http.get('https://integration-api.tangocard.com/raas/v2/catalogs', { headers })
+  }
 
+
+  createOrderInTango(redemptionDetails: any): Observable<any> {
+    const basicToken = 'UUFQbGF0Zm9ybTI6YXBZUGZUNkhOT05wRFJVajNDTEdXWXQ3Z3ZJSE9OcERSVVlQZlQ2SGo=';
+    const headers = new HttpHeaders({
+      'authorization': `Basic ${basicToken}`,
+      'accept': 'application/json'
+    });
+    return this.http.post('https://integration-api.tangocard.com/raas/v2/orders', redemptionDetails, { headers })
   }
 
 }

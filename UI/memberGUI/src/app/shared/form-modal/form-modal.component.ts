@@ -1,8 +1,8 @@
-import { Component, ElementRef, EventEmitter, Input, ViewChild } from '@angular/core';
+import { Component, EventEmitter, Input, Output, ViewChild } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { formFields, physicalRedemption } from './model';
+import { formFields } from './model';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
-
+import { redemptionForm } from 'src/app/redemption-catalog/model';
 declare const $: any;
 @Component({
   selector: 'app-form-modal',
@@ -12,11 +12,10 @@ declare const $: any;
 export class FormModalComponent {
   @Input() title: string = "";
   @Input() elementId: string = ""
-  @Input()
-  fields: formFields[] = [];
+  @Input() fields: formFields[] = [];
+  @Output() formSubmitted = new EventEmitter<any>();
   form!: FormGroup;
-  formSubmit!: physicalRedemption
-  @ViewChild('myModal') myModal!: ElementRef;
+  // @ViewChild('myModal') myModal!: ElementRef;
   constructor(private formBuilder: FormBuilder, private modalService: NgbModal) { }
   ngOnInit() {
     this.form = this.formBuilder.group({});
@@ -31,9 +30,8 @@ export class FormModalComponent {
   onFormSubmit(event: Event) {
     event.preventDefault();
     if (this.form.valid) {
-      this.formSubmit = this.form.value
-      console.log(this.formSubmit)
-
+      this.formSubmitted.emit(this.form.value);
     }
   }
+
 }

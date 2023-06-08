@@ -31,8 +31,11 @@
 </div>
 
 <div class="tab-content">
+  <app-spinner [isVisible]="loadingCards"></app-spinner>
   <div *ngIf="selectedTab === 'tab1'">
-    <app-gift-card-grid [redemptions]="redemptions"></app-gift-card-grid>
+    <app-gift-card-grid
+      [redemptions]="paginatedRedemptions"
+    ></app-gift-card-grid>
   </div>
   <div *ngIf="selectedTab === 'tab2'">
     <app-gift-card-grid></app-gift-card-grid>
@@ -43,9 +46,11 @@
   [title]="'Digital Redemption'"
   [elementId]="'digital-card-model'"
   [fields]="digitalRedemptionFields"
+  (formSubmitted)="handleFormSubmit($event)"
 ></app-form-modal>
 <app-form-modal
   [title]="'Physical Redemption'"
   [elementId]="'physical-card-model'"
   [fields]="physicalRedemptionFields"
+  (formSubmitted)="handleFormSubmit($event)"
 ></app-form-modal>
