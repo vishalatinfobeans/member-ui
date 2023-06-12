@@ -1,0 +1,28 @@
+{
+  "kind": "collectionType",
+  "collectionName": "promotion_activities",
+  "info": {
+    "singularName": "promotion-activity",
+    "pluralName": "promotion-activities",
+    "displayName": "promotion_activity",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "promotion_id": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::promotion-display.promotion-display",
+      "inversedBy": "ID"
+    },
+    "activity_id": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::activity.activity",
+      "inversedBy": "ID"
+    }
+  }
+}

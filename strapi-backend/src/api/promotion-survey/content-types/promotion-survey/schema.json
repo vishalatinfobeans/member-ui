@@ -4,7 +4,7 @@
   "info": {
     "singularName": "promotion-survey",
     "pluralName": "promotion-surveys",
-    "displayName": "promotion_survey",
+    "displayName": "survey_questions",
     "description": ""
   },
   "options": {
