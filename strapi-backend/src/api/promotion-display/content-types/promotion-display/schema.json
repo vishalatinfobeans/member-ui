@@ -30,9 +30,6 @@
     "reward_image_url": {
       "type": "text"
     },
-    "button_text": {
-      "type": "string"
-    },
     "button_url": {
       "type": "text"
     },
@@ -89,6 +86,7 @@
       "enum": [
         "single step",
         "multi step",
+        "multi step automated",
         "count"
       ]
     },
@@ -137,6 +135,19 @@
     },
     "progress_input_value": {
       "type": "biginteger"
+    },
+    "button_text": {
+      "type": "enumeration",
+      "enum": [
+        "Take Survey",
+        "Submit"
+      ]
+    },
+    "ID": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::promotion-activity.promotion-activity",
+      "mappedBy": "promotion_id"
     }
   }
 }

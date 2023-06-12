@@ -41,8 +41,8 @@
     },
     "ID": {
       "type": "relation",
-      "relation": "oneToOne",
-      "target": "api::promotion-display.promotion-display",
+      "relation": "oneToMany",
+      "target": "api::promotion-activity.promotion-activity",
       "mappedBy": "promotion_id"
     }
   }
