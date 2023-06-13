@@ -1,0 +1,25 @@
+{
+  "collectionName": "components_reward_points_advertisements",
+  "info": {
+    "displayName": "advertisements"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "Description": {
+      "type": "richtext"
+    },
+    "points": {
+      "type": "biginteger"
+    },
+    "status": {
+      "type": "enumeration",
+      "enum": [
+        "Active",
+        "Inactive"
+      ]
+    }
+  }
+}

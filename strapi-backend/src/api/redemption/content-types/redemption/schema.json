@@ -1,0 +1,19 @@
+{
+  "kind": "singleType",
+  "collectionName": "redemptions",
+  "info": {
+    "singularName": "redemption",
+    "pluralName": "redemptions",
+    "displayName": "redemption_labels",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "title": {
+      "type": "text"
+    }
+  }
+}

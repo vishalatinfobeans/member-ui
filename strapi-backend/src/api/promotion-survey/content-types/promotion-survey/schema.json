@@ -1,0 +1,31 @@
+{
+  "kind": "collectionType",
+  "collectionName": "promotion_surveys",
+  "info": {
+    "singularName": "promotion-survey",
+    "pluralName": "promotion-surveys",
+    "displayName": "survey_questions",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "question": {
+      "type": "text"
+    },
+    "options": {
+      "type": "json"
+    },
+    "promotion_id": {
+      "type": "integer"
+    },
+    "ID": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::promotion-display.promotion-display",
+      "inversedBy": "survey_question"
+    }
+  }
+}

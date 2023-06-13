@@ -325,8 +325,33 @@ body {
   border-color: #efdeff;
 }
 
+.disable-btn {
+  background-color: #f4f0f8;
+  color: #c2a9ec;
+  border-color: #f4f0f8;
+}
+
 .button-survey:hover {
   color: #fff;
     background-color: #975aff;
     border-color: #975aff;
+}
+
+.card-gatekeeper {
+  background-color: grey;
+}
+
+.disabled-card-title-text {
+   color: #edebeb;
+}
+
+.card-complete {
+  background-color: grey;
+  pointer-events: none !important;
+}
+
+.complete-status {
+  color: #e94646;
+  border: 1px solid red;
+  rotate: -23deg;
 }
