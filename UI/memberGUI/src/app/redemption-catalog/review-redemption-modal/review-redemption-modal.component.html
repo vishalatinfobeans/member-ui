@@ -1,0 +1,40 @@
+<div class="modal-header">
+  <h5 class="modal-title" id="exampleModalLabel">Redemption Review</h5>
+</div>
+<div class="modal-body">
+  <div class="row">
+    <div class="col-4">
+      <img
+        class="details-image"
+        src="{{ giftCard?.imageUrls['130w-326ppi'] }}"
+      />
+    </div>
+    <div class="col-6">
+      <ul>
+        <li>
+          Reward Name: {{ this.dataService?.selectedCardItem?.rewardName }}
+        </li>
+        <li>Amount: {{ this.faceValue }}</li>
+      </ul>
+    </div>
+  </div>
+</div>
+<div class="modal-footer">
+  <button
+    type="button"
+    class="btn btn-danger"
+    data-dismiss="modal"
+    aria-label="Close"
+    (click)="closeModal()"
+  >
+    Close
+  </button>
+  <button
+    type="button"
+    class="btn btn-primary"
+    data-dismiss="modal"
+    (click)="handleFormSubmit()"
+  >
+    Reedem
+  </button>
+</div>

@@ -1,5 +1,3 @@
-
-
 .center {
   width: fit-content;
 }
@@ -21,4 +19,15 @@
   padding-left: 30px;
   border-radius: 10px;
   font-size: 13px;
+}
+
+.btn-enable {
+  pointer-events: all;
+}
+.btn-disable {
+  pointer-events: none;
+}
+
+.errorDiv {
+  text-align: end;
 }

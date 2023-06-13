@@ -44,3 +44,15 @@ interface requirements {
   disclaimerInstructions: string,
   alwaysShowDisclaimer: boolean
 }
+
+export interface redemptionForm {
+  firstName: string,
+  lastName: string,
+  email: string,
+  address1: string,
+  adress2: string,
+  city: string,
+  state: string,
+  zip: string,
+  phone: string
+}

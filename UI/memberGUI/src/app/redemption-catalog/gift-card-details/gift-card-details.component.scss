@@ -2,13 +2,13 @@
 
 .details {
   display: none;
-  height:fit-content ;
+  height: fit-content;
   background-color: #fefcfc;
   margin: 10px;
   width: 100%;
   margin-right: auto;
   margin-left: auto;
-  border:1px solid black;
+  border: 1px solid black;
 }
 
 .item-col {
@@ -18,8 +18,6 @@
 .close {
   color: black;
 }
-
-
 
 .close-btn {
   padding-right: 20px;
@@ -31,27 +29,27 @@
   border-radius: 10px;
 }
 
-.butn{
+.butn {
   border: none;
   background: none;
-.btn-title, .policy-url{
-  color:#50a8ea
+  .btn-title,
+  .policy-url {
+    color: #50a8ea;
+  }
 }
+.remove-icn {
+  list-style-type: none;
 }
-.remove-icn{
-  list-style-type: none
-}
-.list-item{
+.list-item {
   margin-bottom: 30px;
 }
-.list-item-title{
+.list-item-title {
   font-weight: bolder;
   font-size: medium;
 }
-.list-subitem{
-  padding-top:20px;
+.list-subitem {
+  padding-top: 20px;
 }
-
 
 .counter {
   text-align: center;
@@ -61,24 +59,24 @@
   font-size: 24px;
   margin-bottom: 10px;
 }
-.field{
-  width:40px !important;
+.field {
+  width: 40px !important;
 }
 .button {
   font-size: 18px;
   padding-left: 10px;
   padding-right: 10px;
-  border:solid 1px black;
+  border: solid 1px black;
   cursor: pointer;
 }
 
-.counter-field{
-text-align: right;
+.counter-field {
+  text-align: right;
 }
-.counter-item{
-text-align: left;
+.counter-item {
+  text-align: left;
 }
 
-.btn-cart{
+.btn-cart {
   background-color: #50a8ea;
 }

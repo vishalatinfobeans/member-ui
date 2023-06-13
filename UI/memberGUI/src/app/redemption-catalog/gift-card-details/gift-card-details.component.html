@@ -1,5 +1,5 @@
 <div class="row ms-2">
-  <div class="col details-title mb-3 mt-3">Product Title</div>
+  <div class="col details-title mb-3 mt-3">{{ giftCard?.brandName }}</div>
   <div class="col close-btn">
     <i (click)="close(index + 1)" class="fa-solid fa-xmark fa-lg"></i>
   </div>
@@ -36,7 +36,7 @@
           <li class="list-item">
             <span class="list-item-title">TYPE</span>
             <ul class="remove-icn">
-              <li class="list-subitem">
+              <!-- <li class="list-subitem">
                 <input
                   type="radio"
                   name="card"
@@ -44,7 +44,7 @@
                   (click)="isPhysical($event)"
                 />
                 Physical Gift Card
-              </li>
+              </li> -->
               <li class="list-subitem">
                 <input
                   type="radio"
@@ -56,7 +56,7 @@
               </li>
             </ul>
           </li>
-          <li class="list-item">
+          <!-- <li class="list-item">
             <span class="list-item-title">QUANTITY</span>
             <ul class="remove-icn">
               <li>
@@ -71,7 +71,7 @@
                 </div>
               </li>
             </ul>
-          </li>
+          </li> -->
         </ul>
       </div>
     </div>
@@ -87,8 +87,12 @@
               *ngFor="let item of giftCard?.items; let i = index"
             >
               <li class="list-subitem">
-                <input type="radio" /> ${{ item?.faceValue }}
-                {{ item?.minValue }} Points
+                <input
+                  type="radio"
+                  (click)="selectedItem(item)"
+                  name="facevalue"
+                />
+                ${{ item?.faceValue }} {{ item?.minValue }} Points
               </li>
             </ul>
           </li>
@@ -108,16 +112,16 @@
     >
   </div>
   <div class="col text-end">
-    <button
+    <!-- <button
       class="btn btn-cart"
       data-bs-toggle="modal"
       data-bs-target="#physical-card-model"
       *ngIf="cardType === 'physical-card'"
     >
       Reedem
-    </button>
+    </button> -->
     <button
-      *ngIf="cardType === 'digital-card'"
+      *ngIf="cardType === 'digital-card' && this.dataService.selectedCardItem"
       class="btn btn-cart"
       data-bs-toggle="modal"
       data-bs-target="#digital-card-model"
