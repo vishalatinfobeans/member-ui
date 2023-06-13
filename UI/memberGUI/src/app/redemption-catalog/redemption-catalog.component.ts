@@ -6,6 +6,7 @@ import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { FormGroup } from '@angular/forms';
 import { DataService } from './data.service';
 import { event } from 'jquery';
+import { ReviewRedemptionModalComponent } from './review-redemption-modal/review-redemption-modal.component';
 
 @Component({
   selector: 'app-redemption-catalog',
@@ -27,63 +28,75 @@ export class RedemptionCatalogComponent implements OnInit {
       fieldType: 'text',
       fieldName: 'firstName',
       label: 'First Name',
-      validation: { required: true }
+      validation: { required: true },
+     
     },
     {
       fieldType: 'text',
       fieldName: 'lastName',
       label: 'Last Name',
-      validation: { required: true }
+      validation: { required: true },
+   
     },
     {
       fieldType: 'email', fieldName: 'email',
-      label: 'Email', validation: { required: true }
+      label: 'Email', validation: { required: true },
+      
+    },
+    {
+      fieldType: 'email', fieldName: 'confirmEmail',
+      label: 'Confirm Email', validation: { required: true },
+      
+    },
+    {
+      fieldType: 'tel', fieldName: 'mobile',
+      label: 'Phone Number', validation: { required: true },
     }
   ]
-  physicalRedemptionFields: formFields[] = [
-    {
-      fieldType: 'text',
-      fieldName: 'firstName',
-      label: 'First Name',
-      validation: { required: true }
-    },
-    {
-      fieldType: 'text',
-      fieldName: 'lastName',
-      label: 'Last Name',
-      validation: { required: true }
-    },
+  // physicalRedemptionFields: formFields[] = [
+  //   {
+  //     fieldType: 'text',
+  //     fieldName: 'firstName',
+  //     label: 'First Name',
+  //     validation: { required: true }
+  //   },
+  //   {
+  //     fieldType: 'text',
+  //     fieldName: 'lastName',
+  //     label: 'Last Name',
+  //     validation: { required: true }
+  //   },
 
-    {
-      fieldType: 'text', fieldName: 'address1',
-      label: 'Address 1', validation: { required: false }
-    },
-    {
-      fieldType: 'text', fieldName: 'address2',
-      label: 'Address 2', validation: { required: false }
-    },
-    {
-      fieldType: 'text', fieldName: 'city',
-      label: 'City', validation: { required: false }
-    },
-    {
-      fieldType: 'text', fieldName: 'state',
-      label: 'State', validation: { required: false }
-    },
-    {
-      fieldType: 'text', fieldName: 'zip',
-      label: 'Zip', validation: { required: false }
-    },
-    {
-      fieldType: 'tel', fieldName: 'phone',
-      label: 'Phone', validation: { required: false }
-    },
-    {
-      fieldType: 'email', fieldName: 'email',
-      label: 'Email', validation: { required: true }
-    },
+  //   {
+  //     fieldType: 'text', fieldName: 'address1',
+  //     label: 'Address 1', validation: { required: false }
+  //   },
+  //   {
+  //     fieldType: 'text', fieldName: 'address2',
+  //     label: 'Address 2', validation: { required: false }
+  //   },
+  //   {
+  //     fieldType: 'text', fieldName: 'city',
+  //     label: 'City', validation: { required: false }
+  //   },
+  //   {
+  //     fieldType: 'text', fieldName: 'state',
+  //     label: 'State', validation: { required: false }
+  //   },
+  //   {
+  //     fieldType: 'text', fieldName: 'zip',
+  //     label: 'Zip', validation: { required: false }
+  //   },
+  //   {
+  //     fieldType: 'tel', fieldName: 'phone',
+  //     label: 'Phone', validation: { required: false }
+  //   },
+  //   {
+  //     fieldType: 'email', fieldName: 'email',
+  //     label: 'Email', validation: { required: true }
+  //   },
 
-  ]
+  // ]
 
 
   constructor(private apiService: ApiService, private modalService: NgbModal, private dataService: DataService, private elementRef: ElementRef) {
@@ -132,7 +145,10 @@ export class RedemptionCatalogComponent implements OnInit {
 
 
   handleFormSubmit(formData: any) {
-    this.dataService.redeemRequest(formData);
+    const modalRef = this.modalService.open(ReviewRedemptionModalComponent, { size: 'md' });
+    modalRef.componentInstance.modalRef = modalRef;
+    modalRef.componentInstance.formData = formData;
+    //  this.dataService.redeemRequest(formData);
   }
 
 }

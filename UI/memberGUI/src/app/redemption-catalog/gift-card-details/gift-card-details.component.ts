@@ -14,7 +14,7 @@ export class GiftCardDetailsComponent implements OnInit {
   countField: any = document.getElementById('count');
   giftCard!: any
   cardType!: String;
-  constructor(private dataService: DataService) {
+  constructor(public dataService: DataService) {
     this.dataService.redemption$.subscribe((redemption) => {
       this.giftCard = redemption;
     });

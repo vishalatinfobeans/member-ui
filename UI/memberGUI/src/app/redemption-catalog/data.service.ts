@@ -11,7 +11,7 @@ import { HttpErrorResponse } from '@angular/common/http';
 export class DataService {
   redemptionSubject = new BehaviorSubject<any>(null);
   redemption$ = this.redemptionSubject.asObservable();
-  selectedCardItem: any;
+  selectedCardItem!: any;
   constructor(private apiService: ApiService, private modalService: NgbModal) {
 
   }
@@ -45,11 +45,26 @@ export class DataService {
       "sendEmail": true
 
     }
-    console.log(redemptionDetails)
-
     this.apiService.createOrderInTango(redemptionDetails).subscribe((response) => {
       console.log(response)
       this.openSuccessModal(response.referenceOrderID, submitData.email);
+      const reqBody = {
+        "data": {
+          "type": "",
+          "date": new Date(),
+          "account_id": 1,
+          "member_id": 1,
+          "promotion_id": "",
+          "amount": -faceValue,
+          "description": "",
+          "reward_id": "",
+          "redemption_id": response.referenceOrderID,
+          "is_reverserd": false,
+          "status": "Success",
+          "survey_response": ""
+        }
+      }
+      this.apiService.POST("account-transactions", reqBody).subscribe(res=>console.log(res));
     });
   }
   generateUniqueKey(email: string) {

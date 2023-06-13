@@ -56,7 +56,7 @@
               </li>
             </ul>
           </li>
-          <li class="list-item">
+          <!-- <li class="list-item">
             <span class="list-item-title">QUANTITY</span>
             <ul class="remove-icn">
               <li>
@@ -71,7 +71,7 @@
                 </div>
               </li>
             </ul>
-          </li>
+          </li> -->
         </ul>
       </div>
     </div>
@@ -112,16 +112,16 @@
     >
   </div>
   <div class="col text-end">
-    <button
+    <!-- <button
       class="btn btn-cart"
       data-bs-toggle="modal"
       data-bs-target="#physical-card-model"
       *ngIf="cardType === 'physical-card'"
     >
       Reedem
-    </button>
+    </button> -->
     <button
-      *ngIf="cardType === 'digital-card'"
+      *ngIf="cardType === 'digital-card' && this.dataService.selectedCardItem"
       class="btn btn-cart"
       data-bs-toggle="modal"
       data-bs-target="#digital-card-model"

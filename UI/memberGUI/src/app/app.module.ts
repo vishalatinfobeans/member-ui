@@ -25,6 +25,7 @@ import { ActivityHistoryComponent } from './activity-history/activity-history.co
 import { RewardAccountsComponent } from './reward-accounts/reward-accounts.component';
 import { SurveyComponent } from './earning-opportunities/survey/survey.component';
 import { DataService } from './redemption-catalog/data.service';
+import { ReviewRedemptionModalComponent } from './redemption-catalog/review-redemption-modal/review-redemption-modal.component';
 
 
 export function HttpLoaderFactory(http: HttpClient) {
@@ -46,6 +47,7 @@ export function HttpLoaderFactory(http: HttpClient) {
     ActivityHistoryComponent,
     RewardAccountsComponent,
     SurveyComponent,
+    ReviewRedemptionModalComponent,
   ],
   imports: [
     BrowserModule,

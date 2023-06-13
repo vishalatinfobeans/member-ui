@@ -6,7 +6,7 @@
   aria-hidden="true"
 >
   <div class="modal-dialog modal-dialog-centered center">
-    <form [formGroup]="form" (submit)="onFormSubmit($event)">
+    <form [formGroup]="form" (ngSubmit)="onFormSubmit($event)">
       <div class="modal-content">
         <div class="modal-header">
           <h5 class="modal-title" id="exampleModalLabel">{{ title }}</h5>
@@ -28,10 +28,78 @@
                 [formControlName]="field.fieldName"
                 [type]="field.fieldType"
                 class="form-control"
-                aria-label="First name"
               />
             </div>
+            <div class="col-12 text-danger errorDiv">
+              <div
+                *ngIf="
+                  form.get(field.fieldName)?.dirty ||
+                  form.get(field.fieldName)?.touched
+                "
+              >
+                <div *ngIf="form.get(field.fieldName)?.hasError('required')">
+                  {{ field.label }} Required
+                </div>
+                <div
+                  *ngIf="
+                    field.fieldName == 'confirmEmail' &&
+                    form?.hasError('emailMismatch')
+                  "
+                >
+                  Confirm Email is mismatch
+                </div>
+                <div
+                  *ngIf="
+                    field.fieldName == 'email' &&
+                    form.get('email')?.hasError('email')
+                  "
+                >
+                  Email is Invalid
+                </div>
+                <div
+                  *ngIf="
+                    field.fieldType == 'tel' &&
+                    form.get(field.fieldName)?.hasError('invalidTel')
+                  "
+                >
+                  {{ field.label }} is Invalid
+                </div>
+              </div>
+            </div>
           </div>
+          <!-- <div class="row text-danger">
+            <div
+              *ngIf="
+                form.get('confirmEmail')?.dirty ||
+                form.get('confirmEmail')?.touched ||
+                form.get('email')?.dirty ||
+                form.get('emial')?.touched
+              "
+            >
+              <div *ngIf="form?.hasError('emailMismatch')">
+                Confirm Email is mismatch
+              </div>
+              <div *ngIf="form.get('email')?.hasError('email')">
+                Email is Invalid
+              </div>
+            </div>
+          </div> -->
+
+          <!-- <div class="row text-danger" *ngFor="let field of fields">
+            <div
+              *ngIf="
+                form.get(field.fieldName)?.dirty ||
+                form.get(field.fieldName)?.touched
+              "
+            >
+              <div *ngIf="form.get(field.fieldName)?.hasError('required')">
+                {{ field.label }} Required
+              </div>
+              <div *ngIf="form.get(field.fieldName)?.hasError('invalidTel')">
+                {{ field.label }} is Invalid
+              </div>
+            </div>
+          </div> -->
         </div>
         <div class="modal-footer">
           <button
@@ -41,7 +109,12 @@
           >
             Close
           </button>
-          <button type="submit" class="btn btn-primary" data-bs-dismiss="modal">
+          <button
+            type="submit"
+            class="btn btn-primary"
+            data-bs-dismiss="modal"
+            [disabled]="form.invalid"
+          >
             Reedem
           </button>
         </div>
