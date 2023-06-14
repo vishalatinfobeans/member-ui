@@ -3,20 +3,38 @@
 </div>
 <div class="modal-body">
   <div class="row">
-    <div class="col-4">
+    <div class="col-12"> <h6>Card Overview</h6></div>  
+    <div class="col-3">
       <img
         class="details-image"
         src="{{ giftCard?.imageUrls['130w-326ppi'] }}"
       />
     </div>
-    <div class="col-6">
+    <div class="col-7">
       <ul>
-        <li>
-          Reward Name: {{ this.dataService?.selectedCardItem?.rewardName }}
-        </li>
-        <li>Amount: {{ this.faceValue }}</li>
+        <li><b>Reward Name</b>: {{ dataService.selectedCardItem?.rewardName }}</li>
+        <li><b>Amount</b>: ${{ faceValue }}</li>
+        <li><b>Points</b>: {{ faceValue ? faceValue * 100 : "" }}</li>
       </ul>
     </div>
+  </div>
+  <div class="row">
+    <div class="col">
+      <h6>User Details</h6>
+      <ul>
+        <li><b>Name</b>: {{ formData.firstName + " " + formData.lastName }}</li>
+        <li><b>Phone</b>: {{ formData.mobile }}</li>
+        <li><b>Email</b>: {{ formData.email }}</li>
+        
+      </ul>
+    </div>
+  </div>
+  <div class="row"> 
+    <div class="col-12"> <h6>Deduction Details</h6></div>  
+    <div class="col">
+      <b>Current Balance</b>:${{ totalAmount }}
+    </div>
+    <div class="col"><b>Final Balance</b>:${{ totalAmount - faceValue }}</div>
   </div>
 </div>
 <div class="modal-footer">
@@ -31,7 +49,7 @@
   </button>
   <button
     type="button"
-    class="btn btn-primary"
+    class="btn submit"
     data-dismiss="modal"
     (click)="handleFormSubmit()"
   >

@@ -17,7 +17,7 @@ export class RedemptionCatalogComponent implements OnInit {
   selectedTab: string = 'tab1';
   searchPrompt: string = "";
   allRedemptions!: any;
-  paginatedRedemptions!: any;
+  paginatedRedemptions!: Array<any>;
   addedCards = 20;
   formSubmit!: any;
   form!: FormGroup;
@@ -29,24 +29,24 @@ export class RedemptionCatalogComponent implements OnInit {
       fieldName: 'firstName',
       label: 'First Name',
       validation: { required: true },
-     
+
     },
     {
       fieldType: 'text',
       fieldName: 'lastName',
       label: 'Last Name',
       validation: { required: true },
-   
+
     },
     {
       fieldType: 'email', fieldName: 'email',
       label: 'Email', validation: { required: true },
-      
+
     },
     {
       fieldType: 'email', fieldName: 'confirmEmail',
       label: 'Confirm Email', validation: { required: true },
-      
+
     },
     {
       fieldType: 'tel', fieldName: 'mobile',
@@ -122,7 +122,8 @@ export class RedemptionCatalogComponent implements OnInit {
 
     let start = this.addedCards;
     let end = this.addedCards + 20
-    this.paginatedRedemptions = [...this.paginatedRedemptions, ...this.allRedemptions.slice(start, end)]
+    this.paginatedRedemptions?.concat(this.allRedemptions.slice(start, end))
+     this.paginatedRedemptions = [...this.paginatedRedemptions, ...this.allRedemptions.slice(start, end)]
     this.addedCards = this.addedCards + 20;
 
 

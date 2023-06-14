@@ -92,7 +92,9 @@
                   (click)="selectedItem(item)"
                   name="facevalue"
                 />
-                ${{ item?.faceValue }} {{ item?.minValue }} Points
+                ${{ item?.faceValue }} {{ item?.minValue }} <br />
+                &nbsp; &nbsp;{{ item?.faceValue ? item?.faceValue * 100 : "" }}
+                {{ item?.minValue ? item?.minValue * 100 : "" }} Points
               </li>
             </ul>
           </li>

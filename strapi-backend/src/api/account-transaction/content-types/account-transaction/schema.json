@@ -39,9 +39,6 @@
     "reward_id": {
       "type": "integer"
     },
-    "redemption_id": {
-      "type": "integer"
-    },
     "transfer_txn_instrument_id": {
       "type": "integer"
     },
@@ -69,6 +66,11 @@
     },
     "survey_response": {
       "type": "json"
+    },
+    "redemption_id": {
+      "type": "string",
+      "required": false,
+      "unique": true
     }
   }
 }

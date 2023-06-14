@@ -18,88 +18,59 @@
           ></button>
         </div>
         <div class="modal-body">
-          <div class="row m-2" *ngFor="let field of fields">
-            <div class="col-4">
-              <label [for]="field.fieldName">{{ field.label }}</label>
+          <ng-container *ngFor="let field of fields">
+            <div class="row m-2">
+              <div class="col-4">
+                <label [for]="field.fieldName">{{ field.label }}</label>
+              </div>
+              <div class="col-8">
+                <input
+                  [id]="field.fieldName"
+                  [formControlName]="field.fieldName"
+                  [type]="field.fieldType"
+                  class="form-control "
+                  [ngClass]="{'errorField':form.get(field.fieldName)?.invalid &&  form.get(field.fieldName)?.dirty &&  form.get(field.fieldName)?.touched}"
+                />
+              </div>
             </div>
-            <div class="col-8">
-              <input
-                [id]="field.fieldName"
-                [formControlName]="field.fieldName"
-                [type]="field.fieldType"
-                class="form-control"
-              />
-            </div>
-            <div class="col-12 text-danger errorDiv">
-              <div
-                *ngIf="
-                  form.get(field.fieldName)?.dirty ||
-                  form.get(field.fieldName)?.touched
-                "
-              >
-                <div *ngIf="form.get(field.fieldName)?.hasError('required')">
-                  {{ field.label }} Required
-                </div>
+            <div class="row m-2 ">
+              <div class="col-12 text-danger errorDiv mb-2">
                 <div
                   *ngIf="
-                    field.fieldName == 'confirmEmail' &&
-                    form?.hasError('emailMismatch')
+                    form.get(field.fieldName)?.dirty ||
+                    form.get(field.fieldName)?.touched
                   "
                 >
-                  Confirm Email is mismatch
-                </div>
-                <div
-                  *ngIf="
-                    field.fieldName == 'email' &&
-                    form.get('email')?.hasError('email')
-                  "
-                >
-                  Email is Invalid
-                </div>
-                <div
-                  *ngIf="
-                    field.fieldType == 'tel' &&
-                    form.get(field.fieldName)?.hasError('invalidTel')
-                  "
-                >
-                  {{ field.label }} is Invalid
+                  <div *ngIf="form.get(field.fieldName)?.hasError('required') ">
+                    {{ field.label }} Required
+                  </div>
+                  <div
+                    *ngIf="
+                      field.fieldName == 'confirmEmail' &&
+                      form?.hasError('emailMismatch') && !form.get(field.fieldName)?.hasError('required')"
+                  >
+                    Confirm Email is mismatch
+                  </div>
+                  <div
+                    *ngIf="
+                      field.fieldName == 'email' &&
+                      form.get('email')?.hasError('email')
+                    "
+                  >
+                    Email is Invalid
+                  </div>
+                  <div
+                    *ngIf="
+                      field.fieldType == 'tel' &&
+                      form.get(field.fieldName)?.hasError('invalidTel')
+                    "
+                  >
+                    {{ field.label }} is Invalid
+                  </div>
                 </div>
               </div>
             </div>
-          </div>
-          <!-- <div class="row text-danger">
-            <div
-              *ngIf="
-                form.get('confirmEmail')?.dirty ||
-                form.get('confirmEmail')?.touched ||
-                form.get('email')?.dirty ||
-                form.get('emial')?.touched
-              "
-            >
-              <div *ngIf="form?.hasError('emailMismatch')">
-                Confirm Email is mismatch
-              </div>
-              <div *ngIf="form.get('email')?.hasError('email')">
-                Email is Invalid
-              </div>
-            </div>
-          </div> -->
-
-          <!-- <div class="row text-danger" *ngFor="let field of fields">
-            <div
-              *ngIf="
-                form.get(field.fieldName)?.dirty ||
-                form.get(field.fieldName)?.touched
-              "
-            >
-              <div *ngIf="form.get(field.fieldName)?.hasError('required')">
-                {{ field.label }} Required
-              </div>
-              <div *ngIf="form.get(field.fieldName)?.hasError('invalidTel')">
-                {{ field.label }} is Invalid
-              </div>
-            </div>
-          </div> -->
+          </ng-container>
         </div>
         <div class="modal-footer">
           <button
@@ -111,7 +82,7 @@
           </button>
           <button
             type="submit"
-            class="btn btn-primary"
+            class="btn submit"
             data-bs-dismiss="modal"
             [disabled]="form.invalid"
           >
