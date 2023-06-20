@@ -92,7 +92,6 @@ export class DataService {
         description: '',
         reward_id: null,
         is_reverserd: false,
-        status: 'Success',
         survey_response: '',
       },
     };
@@ -118,12 +117,15 @@ export class DataService {
       sendEmail: true,
     };
     reqBody.data['redemption_request'] = redemptionDetails;
+    reqBody.data['status'] = 'Success';
     this.apiService
       .POST('account-transactions', reqBody)
       .subscribe((savedResponse) => {
         this.apiService.createOrderInTango(redemptionDetails).subscribe(
           (tangoResponse) => {
+            this.apiService.setUpdatedRedemption('');
             reqBody.data['redemption_response'] = tangoResponse;
+
             this.apiService
               .PUT('account-transactions/' + savedResponse.data.id, reqBody)
               .subscribe((updatedData) => {
@@ -135,6 +137,7 @@ export class DataService {
             );
           },
           (error: HttpErrorResponse) => {
+            reqBody.data['status'] = 'Failed';
             reqBody.data['redemption_request'] = null;
             reqBody.data['redemption_response'] = error;
             reqBody.data['amount'] = this.finalAmount;

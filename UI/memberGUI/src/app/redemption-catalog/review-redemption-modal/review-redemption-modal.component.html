@@ -61,7 +61,7 @@
         </tr>
         <tr>
           <th>{{ labels.current_balance }}</th>
-          <td>: ${{ totalAmount }}</td>
+          <td>: ${{ totalAmount | number }}</td>
         </tr>
         <tr>
           <th>{{ labels.gift_amount }}</th>
@@ -72,7 +72,7 @@
         </tr>
         <tr>
           <th>{{ labels.final_balance }}</th>
-          <td>: ${{ totalAmount - faceValue }}</td>
+          <td>: ${{ totalAmount - faceValue | number }}</td>
         </tr>
       </table>
     </div>

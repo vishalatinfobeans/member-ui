@@ -12,6 +12,9 @@ export class NavbarBadgeComponent implements OnInit {
       // this.languageSelected = data
       this.getAccountData();
     });
+    this.apiService.getUpdatedRedemption?.subscribe((data: any) => {
+      this.getAccountData();
+    });
   }
   totalAmount: any;
 
@@ -27,6 +30,7 @@ export class NavbarBadgeComponent implements OnInit {
         this.totalAmount = res.data.reduce((total: number, amountData: any) => {
           return total + amountData.attributes.amount;
         }, 0);
+        this.totalAmount=Math.floor(this.totalAmount)
         // console.log({totalAmount: this.totalAmount});
       });
   }

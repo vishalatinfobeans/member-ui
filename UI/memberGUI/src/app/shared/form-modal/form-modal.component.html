@@ -22,9 +22,8 @@
             [type]="field.fieldType"
             class="form-control"
             [ngClass]="{
-              errorField:
+              'border border-danger':
                 form.get(field.fieldName)?.invalid &&
-                form.get(field.fieldName)?.dirty &&
                 form.get(field.fieldName)?.touched
             }"
           />
