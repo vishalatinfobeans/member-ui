@@ -31,6 +31,9 @@ export interface Promotions {
     updated_on: string;
     disablePromotion: boolean;
     progress_type: string;
+    activityCount: number;
+    reward_image_url: string;
+    display_order: any;
   };
   id: number;
 }

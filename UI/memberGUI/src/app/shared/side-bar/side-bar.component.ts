@@ -14,7 +14,7 @@ export class SideBarComponent implements OnInit {
   isExpanded: boolean = false;
 
   ngOnInit(): void {
-
+    
   }
 
   handleSidebarToggle = () => {

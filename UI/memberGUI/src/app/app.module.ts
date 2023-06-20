@@ -24,6 +24,10 @@ import { HomeComponent } from './home/home.component';
 import { ActivityHistoryComponent } from './activity-history/activity-history.component';
 import { RewardAccountsComponent } from './reward-accounts/reward-accounts.component';
 import { SurveyComponent } from './earning-opportunities/survey/survey.component';
+import { SafePipe } from './safe.pipe';
+
+import { DecimalPipe, NgFor } from '@angular/common';
+import { NgbPaginationModule, NgbTypeaheadModule } from '@ng-bootstrap/ng-bootstrap';
 
 
 export function HttpLoaderFactory(http: HttpClient) {
@@ -45,9 +49,10 @@ export function HttpLoaderFactory(http: HttpClient) {
     ActivityHistoryComponent,
     RewardAccountsComponent,
     SurveyComponent,
+    SafePipe,
   ],
   imports: [
-    BrowserModule,
+    BrowserModule,DecimalPipe, NgFor, NgbTypeaheadModule, NgbPaginationModule,
     AppRoutingModule,
     NgbModule,
     FormsModule,

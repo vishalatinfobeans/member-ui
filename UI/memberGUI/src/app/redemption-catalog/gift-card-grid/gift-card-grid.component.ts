@@ -20,6 +20,7 @@ export class GiftCardGridComponent {
     });
   }
   ngOnInit() {
+    console.log("gift card gird component ngoninit")
     this.getScreenResolution();
   }
 

@@ -22,6 +22,7 @@ export class SurveyComponent implements OnInit{
   constructor(private modalService: NgbModal, private apiService: ApiService) {}
 
   ngOnInit(): void {
+    console.log("survey component ngoninit");
     
   }
 
