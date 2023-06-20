@@ -1,5 +1,5 @@
 <div class="row ms-2">
-  <div class="col details-title mb-3 mt-3">Product Title</div>
+  <div class="col details-title mb-3 mt-3">{{ giftCard?.brandName }}</div>
   <div class="col close-btn">
     <i (click)="close(index + 1)" class="fa-solid fa-xmark fa-lg"></i>
   </div>
@@ -11,20 +11,17 @@
         <img
           class="details-image"
           src="{{ giftCard?.imageUrls['1200w-326ppi'] }}"
+          alt=""
         />
       </div>
       <div class="col-12">
-        <button class="butn" data-bs-toggle="modal" data-bs-target="#details">
-          <span class="btn-title">Product Description</span>
+        <button class="butn" (click)="openCardDescription()">
+          <span class="btn-title">{{ labels.card_discription }}</span>
         </button>
       </div>
       <div class="col-12">
-        <button
-          class="butn"
-          data-bs-toggle="modal"
-          data-bs-target="#deliveryInfo"
-        >
-          <span class="btn-title">Delivery Information</span>
+        <button class="butn">
+          <span class="btn-title">{{ labels.card_delivery_Info }}</span>
         </button>
       </div>
     </div>
@@ -34,17 +31,8 @@
       <div class="col-12">
         <ul class="remove-icn">
           <li class="list-item">
-            <span class="list-item-title">TYPE</span>
+            <span class="list-item-title">{{ labels.card_type }}</span>
             <ul class="remove-icn">
-              <li class="list-subitem">
-                <input
-                  type="radio"
-                  name="card"
-                  value="physical-card"
-                  (click)="isPhysical($event)"
-                />
-                Physical Gift Card
-              </li>
               <li class="list-subitem">
                 <input
                   type="radio"
@@ -52,23 +40,7 @@
                   value="digital-card"
                   (click)="isDigital($event)"
                 />
-                Digital Gift Card
-              </li>
-            </ul>
-          </li>
-          <li class="list-item">
-            <span class="list-item-title">QUANTITY</span>
-            <ul class="remove-icn">
-              <li>
-                <div class="counter row">
-                  <div class="col counter-field">
-                    <input type="text" class="field" [(ngModel)]="count" />
-                  </div>
-                  <div class="col counter-item">
-                    <button class="button" (click)="increaseCount()">+</button>
-                    <button class="button" (click)="decreaseCount()">-</button>
-                  </div>
-                </div>
+                {{ labels.digital_card }}
               </li>
             </ul>
           </li>
@@ -81,16 +53,68 @@
       <div class="col-12">
         <ul class="remove-icn">
           <li class="list-item">
-            <span class="list-item-title">VALUE</span>
-            <ul
-              class="remove-icn"
-              *ngFor="let item of giftCard?.items; let i = index"
-            >
-              <li class="list-subitem">
-                <input type="radio" /> ${{ item?.faceValue }}
-                {{ item?.minValue }} Points
-              </li>
-            </ul>
+            <span class="list-item-title">{{ labels.card_value }}</span>
+
+            <div class="row mt-3">
+              <div class="col-12">
+                <div class="btn-group-vertical menu-list">
+                  <ng-container
+                    *ngFor="let item of giftCard?.items; let i = index"
+                  >
+                    <div
+                      class="drop-item"
+                      *ngIf="item.faceValue != null"
+                      (click)="selectedItem(item)"
+                    >
+                      <button
+                        type="button"
+                        class="btn btn-muted"
+                        [ngClass]="{
+                          active:
+                            item.utid == dataService.selectedCardItem?.utid
+                        }"
+                      >
+                        ${{ item?.faceValue }} <br />
+                        {{ item?.faceValue * 100 + " "
+                        }}{{ labels.card_points }}
+                      </button>
+                    </div>
+                  </ng-container>
+                </div>
+              </div>
+
+              <div class="col-12">
+                <ul type="none" class="range-list">
+                  <ng-container
+                    *ngFor="let item of giftCard?.items; let i = index"
+                  >
+                    <li *ngIf="item.faceValue == null">
+                      <div class="row">
+                        <div class="col range-inpt">
+                          <div class="slider">
+                            <input
+                              type="range"
+                              (input)="updateBubble($event, index)"
+                              min="{{ item.minValue }}"
+                              max="{{ item.maxValue }}"
+                              (click)="selectedItem(item)"
+                            />
+                            <p id="{{ 'amount' + index }}" class="input-amt">
+                              ${{ item.minValue }}
+                            </p>
+                            <p id="{{ 'points' + index }}" class="input-pnt">
+                              {{
+                                item.minValue * 100 + " " + labels.card_points
+                              }}
+                            </p>
+                          </div>
+                        </div>
+                      </div>
+                    </li>
+                  </ng-container>
+                </ul>
+              </div>
+            </div>
           </li>
         </ul>
       </div>
@@ -99,30 +123,19 @@
 </div>
 <div class="row ms-2">
   <div class="col">
-    <a
-      href="#"
-      class="policy-url"
-      data-bs-toggle="modal"
-      data-bs-target="#terms"
-      >Terms & Conditions</a
-    >
+    <a class="policy-url" (click)="openTersAndCondition()">{{
+      labels.card_terms
+    }}</a>
   </div>
   <div class="col text-end">
     <button
-      class="btn btn-cart"
-      data-bs-toggle="modal"
-      data-bs-target="#physical-card-model"
-      *ngIf="cardType === 'physical-card'"
-    >
-      Reedem
-    </button>
-    <button
-      *ngIf="cardType === 'digital-card'"
+      *ngIf="cardType === 'digital-card' && this.dataService.selectedCardItem"
       class="btn btn-cart"
       data-bs-toggle="modal"
       data-bs-target="#digital-card-model"
+      (click)="openRedemeForm()"
     >
-      Reedem
+      {{ labels.checkout_reedem }}
     </button>
   </div>
 </div>

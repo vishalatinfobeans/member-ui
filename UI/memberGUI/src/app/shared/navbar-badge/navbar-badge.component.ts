@@ -4,15 +4,17 @@ import { ApiService } from 'src/app/api.service';
 @Component({
   selector: 'app-navbar-badge',
   templateUrl: './navbar-badge.component.html',
-  styleUrls: ['./navbar-badge.component.scss']
+  styleUrls: ['./navbar-badge.component.scss'],
 })
 export class NavbarBadgeComponent implements OnInit {
-
-  constructor(private apiService: ApiService){
-    this.apiService.getUpdatedPromotion?.subscribe((data:any)=>{
+  constructor(private apiService: ApiService) {
+    this.apiService.getUpdatedPromotion?.subscribe((data: any) => {
       // this.languageSelected = data
       this.getAccountData();
-    })
+    });
+    this.apiService.getUpdatedRedemption?.subscribe((data: any) => {
+      this.getAccountData();
+    });
   }
   totalAmount: any;
 
@@ -20,12 +22,16 @@ export class NavbarBadgeComponent implements OnInit {
     this.getAccountData();
   }
 
-  getAccountData(){
-    this.apiService.GET(`account-transactions?fields[0]=amount`).subscribe(res=>{
-      // console.log(res)
-      this.totalAmount = res.data.reduce(((total:number, amountData:any)=>{return total + amountData.attributes.amount}),0)
-      // console.log({totalAmount: this.totalAmount});
-    });
+  getAccountData() {
+    this.apiService
+      .GET(`account-transactions?fields[0]=amount`)
+      .subscribe((res) => {
+        console.log(res);
+        this.totalAmount = res.data.reduce((total: number, amountData: any) => {
+          return total + amountData.attributes.amount;
+        }, 0);
+        this.totalAmount=Math.floor(this.totalAmount)
+        // console.log({totalAmount: this.totalAmount});
+      });
   }
-
 }

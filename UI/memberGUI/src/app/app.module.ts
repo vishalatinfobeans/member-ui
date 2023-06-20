@@ -28,6 +28,8 @@ import { SafePipe } from './safe.pipe';
 
 import { DecimalPipe, NgFor } from '@angular/common';
 import { NgbPaginationModule, NgbTypeaheadModule } from '@ng-bootstrap/ng-bootstrap';
+import { DataService } from './redemption-catalog/data.service';
+import { ReviewRedemptionModalComponent } from './redemption-catalog/review-redemption-modal/review-redemption-modal.component';
 
 
 export function HttpLoaderFactory(http: HttpClient) {
@@ -50,6 +52,7 @@ export function HttpLoaderFactory(http: HttpClient) {
     RewardAccountsComponent,
     SurveyComponent,
     SafePipe,
+    ReviewRedemptionModalComponent,
   ],
   imports: [
     BrowserModule,DecimalPipe, NgFor, NgbTypeaheadModule, NgbPaginationModule,
@@ -63,8 +66,8 @@ export function HttpLoaderFactory(http: HttpClient) {
     TranslateModule.forRoot({
       loader: {
         provide: TranslateLoader,
-          useFactory: HttpLoaderFactory,
-          deps: [HttpClient]
+        useFactory: HttpLoaderFactory,
+        deps: [HttpClient]
       }
     }),
     ServiceWorkerModule.register('ngsw-worker.js', {
@@ -75,7 +78,7 @@ export function HttpLoaderFactory(http: HttpClient) {
     })
   ],
   exports: [TranslateModule],
-  providers: [TranslateService],
+  providers: [TranslateService, DataService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

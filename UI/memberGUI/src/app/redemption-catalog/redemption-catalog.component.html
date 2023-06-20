@@ -31,21 +31,13 @@
 </div>
 
 <div class="tab-content">
+  <app-spinner [isVisible]="loadingCards"></app-spinner>
   <div *ngIf="selectedTab === 'tab1'">
-    <app-gift-card-grid [redemptions]="redemptions"></app-gift-card-grid>
+    <app-gift-card-grid
+      [redemptions]="paginatedRedemptions"
+    ></app-gift-card-grid>
   </div>
   <div *ngIf="selectedTab === 'tab2'">
     <app-gift-card-grid></app-gift-card-grid>
   </div>
 </div>
-
-<app-form-modal
-  [title]="'Digital Redemption'"
-  [elementId]="'digital-card-model'"
-  [fields]="digitalRedemptionFields"
-></app-form-modal>
-<app-form-modal
-  [title]="'Physical Redemption'"
-  [elementId]="'physical-card-model'"
-  [fields]="physicalRedemptionFields"
-></app-form-modal>

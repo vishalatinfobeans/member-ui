@@ -13,6 +13,8 @@ import { FormModalComponent } from './form-modal/form-modal.component';
 
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { InfoModalComponent } from './info-modal/info-modal.component';
+import { MessageModalComponent } from './message-modal/message-modal.component';
+import { SpinnerComponent } from './spinner/spinner.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +25,9 @@ import { InfoModalComponent } from './info-modal/info-modal.component';
     NavbarBadgeComponent,
     SecondaryNavbarComponent,
     FormModalComponent,
-    InfoModalComponent
+    InfoModalComponent,
+    MessageModalComponent,
+    SpinnerComponent
   ],
   imports: [
     CommonModule,
@@ -38,7 +42,9 @@ import { InfoModalComponent } from './info-modal/info-modal.component';
     FooterComponent,
     SideBarComponent,
     FormModalComponent,
-    InfoModalComponent
+    InfoModalComponent,
+    MessageModalComponent,
+    SpinnerComponent
   ],
 
 })
