@@ -1,95 +1,92 @@
-<div
-  class="modal fade"
-  id="{{ elementId }}"
-  tabindex="-1"
-  aria-labelledby="exampleModalLabel"
-  aria-hidden="true"
->
-  <div class="modal-dialog modal-dialog-centered center">
-    <form [formGroup]="form" (ngSubmit)="onFormSubmit($event)">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLabel">{{ title }}</h5>
-          <button
-            type="button"
-            class="btn-close"
-            data-bs-dismiss="modal"
-            aria-label="Close"
-          ></button>
+<form [formGroup]="form" (ngSubmit)="onFormSubmit($event)">
+  <div class="modal-header">
+    <h5 class="modal-title" id="exampleModalLabel">{{ title }}</h5>
+    <button
+      type="button"
+      class="btn-close"
+      data-bs-dismiss="modal"
+      aria-label="Close"
+      (click)="closeModal()"
+    ></button>
+  </div>
+  <div class="modal-body">
+    <ng-container *ngFor="let field of fields">
+      <div class="row m-2">
+        <div class="col-4">
+          <label [for]="field.fieldName">{{ field.label }}</label>
         </div>
-        <div class="modal-body">
-          <ng-container *ngFor="let field of fields">
-            <div class="row m-2">
-              <div class="col-4">
-                <label [for]="field.fieldName">{{ field.label }}</label>
-              </div>
-              <div class="col-8">
-                <input
-                  [id]="field.fieldName"
-                  [formControlName]="field.fieldName"
-                  [type]="field.fieldType"
-                  class="form-control "
-                  [ngClass]="{'errorField':form.get(field.fieldName)?.invalid &&  form.get(field.fieldName)?.dirty &&  form.get(field.fieldName)?.touched}"
-                />
-              </div>
-            </div>
-            <div class="row m-2 ">
-              <div class="col-12 text-danger errorDiv mb-2">
-                <div
-                  *ngIf="
-                    form.get(field.fieldName)?.dirty ||
-                    form.get(field.fieldName)?.touched
-                  "
-                >
-                  <div *ngIf="form.get(field.fieldName)?.hasError('required') ">
-                    {{ field.label }} Required
-                  </div>
-                  <div
-                    *ngIf="
-                      field.fieldName == 'confirmEmail' &&
-                      form?.hasError('emailMismatch') && !form.get(field.fieldName)?.hasError('required')"
-                  >
-                    Confirm Email is mismatch
-                  </div>
-                  <div
-                    *ngIf="
-                      field.fieldName == 'email' &&
-                      form.get('email')?.hasError('email')
-                    "
-                  >
-                    Email is Invalid
-                  </div>
-                  <div
-                    *ngIf="
-                      field.fieldType == 'tel' &&
-                      form.get(field.fieldName)?.hasError('invalidTel')
-                    "
-                  >
-                    {{ field.label }} is Invalid
-                  </div>
-                </div>
-              </div>
-            </div>
-          </ng-container>
-        </div>
-        <div class="modal-footer">
-          <button
-            type="button"
-            class="btn btn-secondary"
-            data-bs-dismiss="modal"
-          >
-            Close
-          </button>
-          <button
-            type="submit"
-            class="btn submit"
-            data-bs-dismiss="modal"
-            [disabled]="form.invalid"
-          >
-            Reedem
-          </button>
+        <div class="col-8">
+          <input
+            [id]="field.fieldName"
+            [formControlName]="field.fieldName"
+            [type]="field.fieldType"
+            class="form-control"
+            [ngClass]="{
+              errorField:
+                form.get(field.fieldName)?.invalid &&
+                form.get(field.fieldName)?.dirty &&
+                form.get(field.fieldName)?.touched
+            }"
+          />
         </div>
       </div>
-    </form>
+      <div class="row m-2">
+        <div class="col-12 text-danger errorDiv mb-2">
+          <div
+            *ngIf="
+              form.get(field.fieldName)?.dirty ||
+              form.get(field.fieldName)?.touched
+            "
+          >
+            <div *ngIf="form.get(field.fieldName)?.hasError('required')">
+              {{ field.label }} Required
+            </div>
+            <div
+              *ngIf="
+                field.fieldName == 'confirmEmail' &&
+                form?.hasError('emailMismatch') &&
+                !form.get(field.fieldName)?.hasError('required')
+              "
+            >
+              Confirm Email is mismatch
+            </div>
+            <div
+              *ngIf="
+                field.fieldName == 'email' &&
+                form.get('email')?.hasError('email')
+              "
+            >
+              Email is Invalid
+            </div>
+            <div
+              *ngIf="
+                field.fieldType == 'tel' &&
+                form.get(field.fieldName)?.hasError('invalidTel')
+              "
+            >
+              {{ field.label }} is Invalid
+            </div>
+          </div>
+        </div>
+      </div>
+    </ng-container>
   </div>
-</div>
+  <div class="modal-footer">
+    <button
+      type="button"
+      class="btn btn-secondary"
+      data-bs-dismiss="modal"
+      (click)="closeModal()"
+    >
+      {{ labels?.close }}
+    </button>
+    <button
+      type="submit"
+      class="btn submit"
+      data-bs-dismiss="modal"
+      [disabled]="form.invalid"
+    >
+      {{ labels?.reedem }}
+    </button>
+  </div>
+</form>

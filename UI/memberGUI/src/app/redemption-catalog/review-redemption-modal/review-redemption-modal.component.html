@@ -1,40 +1,81 @@
 <div class="modal-header">
-  <h5 class="modal-title" id="exampleModalLabel">Redemption Review</h5>
+  <h5 class="modal-title" id="exampleModalLabel">
+    {{ labels.redemption_review }}
+  </h5>
 </div>
 <div class="modal-body">
   <div class="row">
-    <div class="col-12"> <h6>Card Overview</h6></div>  
-    <div class="col-3">
+    <div class="col-12">
+      <h6>{{ labels.card_overview }}</h6>
+    </div>
+    <div class="col-5">
       <img
         class="details-image"
         src="{{ giftCard?.imageUrls['130w-326ppi'] }}"
+        alt=""
       />
     </div>
     <div class="col-7">
       <ul>
-        <li><b>Reward Name</b>: {{ dataService.selectedCardItem?.rewardName }}</li>
-        <li><b>Amount</b>: ${{ faceValue }}</li>
-        <li><b>Points</b>: {{ faceValue ? faceValue * 100 : "" }}</li>
+        <li>
+          <b>{{ labels.card_name }}</b
+          >: {{ dataService.selectedCardItem?.rewardName }}
+        </li>
+        <li>
+          <b>{{ labels.card_amount }}</b
+          >: ${{ faceValue }}
+        </li>
+        <li>
+          <b>{{ labels.card_points }}</b
+          >: {{ faceValue ? faceValue * 100 : "" }}
+        </li>
       </ul>
     </div>
   </div>
   <div class="row">
     <div class="col">
-      <h6>User Details</h6>
+      <h6>{{ labels.user_details }}</h6>
       <ul>
-        <li><b>Name</b>: {{ formData.firstName + " " + formData.lastName }}</li>
-        <li><b>Phone</b>: {{ formData.mobile }}</li>
-        <li><b>Email</b>: {{ formData.email }}</li>
-        
+        <li>
+          <b>{{ labels.name }}</b
+          >: {{ formData.firstName + " " + formData.lastName }}
+        </li>
+        <li>
+          <b>{{ labels.phone_number }}</b
+          >: {{ formData.mobile }}
+        </li>
+        <li>
+          <b>{{ labels.email }}</b
+          >: {{ formData.email }}
+        </li>
       </ul>
     </div>
   </div>
-  <div class="row"> 
-    <div class="col-12"> <h6>Deduction Details</h6></div>  
-    <div class="col">
-      <b>Current Balance</b>:${{ totalAmount }}
+  <div class="row">
+    <div class="col-12">
+      <table>
+        <tr>
+          <th colspan="2">
+            <h6>{{ labels.account_details }}</h6>
+          </th>
+        </tr>
+        <tr>
+          <th>{{ labels.current_balance }}</th>
+          <td>: ${{ totalAmount }}</td>
+        </tr>
+        <tr>
+          <th>{{ labels.gift_amount }}</th>
+          <td>: ${{ faceValue }}</td>
+        </tr>
+        <tr>
+          <th colspan="2"><hr /></th>
+        </tr>
+        <tr>
+          <th>{{ labels.final_balance }}</th>
+          <td>: ${{ totalAmount - faceValue }}</td>
+        </tr>
+      </table>
     </div>
-    <div class="col"><b>Final Balance</b>:${{ totalAmount - faceValue }}</div>
   </div>
 </div>
 <div class="modal-footer">
@@ -45,7 +86,7 @@
     aria-label="Close"
     (click)="closeModal()"
   >
-    Close
+    {{ labels.close }}
   </button>
   <button
     type="button"
@@ -53,6 +94,6 @@
     data-dismiss="modal"
     (click)="handleFormSubmit()"
   >
-    Reedem
+    {{ labels.reedem }}
   </button>
 </div>

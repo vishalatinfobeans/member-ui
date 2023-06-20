@@ -71,6 +71,12 @@
       "type": "string",
       "required": false,
       "unique": true
+    },
+    "redemption_request": {
+      "type": "json"
+    },
+    "redemption_response": {
+      "type": "json"
     }
   }
 }
